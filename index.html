@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Timetable - SRM University</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <div class="university-info">
+                    <h1 class="university-name">SRM University Delhi-NCR, Sonepat</h1>
+                    <div class="program-details">
+                        <span class="program">BCA Semester III, Section B</span>
+                        <span class="separator">•</span>
+                        <span class="room">Room: A-407</span>
+                        <span class="separator">•</span>
+                        <span class="session">Session: 2025 (ODD Semester)</span>
+                    </div>
+                </div>
+                <div class="header-controls">
+                    <button class="theme-toggle" id="themeToggle" title="Toggle light/dark theme">
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <div class="current-time">
+                        <div class="time-display" id="currentTime">3:00:00 PM</div>
+                        <div class="date-display" id="currentDate">Sunday, Aug 10, 2025</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Timetable -->
+        <main class="main-content">
+            <div class="timetable-container">
+                <div class="timetable-header">
+                    <h2>Weekly Timetable</h2>
+                    <div class="teacher-info">
+                        <span>Class In-Charge: Ms. Arul</span>
+                        <span class="separator">•</span>
+                        <span>Program Coordinator: Dr. Neeraj Dahiya</span>
+                    </div>
+                </div>
+
+                <div class="timetable-grid" id="timetableGrid">
+                    <!-- Grid will be populated by JavaScript -->
+                </div>
+
+                <!-- Legend -->
+                <div class="legend">
+                    <h3>Legend</h3>
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <div class="color-box subject"></div>
+                            <span>Regular Classes</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box lab"></div>
+                            <span>Lab Sessions</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box lunch"></div>
+                            <span>Lunch Break</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box free"></div>
+                            <span>Free Period</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box today"></div>
+                            <span>Current Class</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Subject Detail Modal -->
+        <div class="modal hidden" id="subjectModal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Subject Details</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="subject-details">
+                        <div class="detail-row"><span class="detail-label">Subject:</span><span class="detail-value"
+                                id="subjectName"></span></div>
+                        <div class="detail-row"><span class="detail-label">Code:</span><span class="detail-value"
+                                id="subjectCode"></span></div>
+                        <div class="detail-row"><span class="detail-label">Faculty:</span><span class="detail-value"
+                                id="subjectFaculty"></span></div>
+                        <div class="detail-row"><span class="detail-label">Department:</span><span class="detail-value"
+                                id="subjectDepartment"></span></div>
+                        <div class="detail-row"><span class="detail-label">Time:</span><span class="detail-value"
+                                id="subjectTime"></span></div>
+                        <div class="detail-row"><span class="detail-label">Day:</span><span class="detail-value"
+                                id="subjectDay"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student List Modal -->
+        <div class="modal hidden" id="studentModal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Student List</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-tabs">
+                        <button class="tab-btn active" data-section="B">Section B</button>
+                        <button class="tab-btn" data-section="A">Section A</button>
+                    </div>
+                    <div class="student-list-container" id="studentListContainer">
+                        <!-- Student list will be populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Faculty List Modal -->
+        <div class="modal hidden" id="facultyModal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Faculty List</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body" id="facultyListContainer">
+                    <!-- Faculty list will be populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- About Me Modal -->
+        <div class="modal hidden" id="aboutMeModal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>About Me</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="subject-details" id="aboutMeContainer">
+                        <!-- "About Me" details will be populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="info">
+                    <span id="madeByLink" class="footer-link">Made by: Mohammad Ahsan Neyaz</span>
+                </div>
+                <div class="footer-links">
+                    <span id="totalStudentsLink" class="footer-link">Total Students: 79</span>
+                    <span class="separator">•</span>
+                    <a href="#" id="viewFacultyLink" class="footer-link">View Faculty</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
