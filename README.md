@@ -1,6 +1,6 @@
-# 🎓 Interactive BCA III Semester Timetable
+# 🎓 Interactive BCA 3B Timetable
 
-A modern, responsive web application to view and manage the BCA III Semester timetable for SRM University Delhi-NCR, built with clean HTML, CSS, and JavaScript. Designed for performance, accessibility, and a delightful user experience across devices.
+A web application to view and manage the BCA 3B timetable for SRM University Delhi-NCR, built with HTML, CSS, and JavaScript. Designed for performance, accessibility, and a delightful user experience across devices.
 
 Live demo: https://mahsanneyaz.github.io/3rd-sem-timetable/
 
@@ -9,11 +9,11 @@ Live demo: https://mahsanneyaz.github.io/3rd-sem-timetable/
 ## ✨ Features
 
 - Modern design system
-    - Professional dark/light themes with system preference detection
+    - Dark/light themes with system preference detection
     - Teal \& charcoal color palette for optimal readability
     - Responsive grid layout with smooth animations
 - Smart time management
-    - Live clock with seconds
+    - Live clock 
     - Highlights today’s schedule and the current class slot
 - Interactive UI
     - Click any subject to view details (faculty, code, department)
@@ -22,7 +22,6 @@ Live demo: https://mahsanneyaz.github.io/3rd-sem-timetable/
     - Personal profile for Mohammad Ahsan Neyaz
 - Technical excellence
     - Zero dependencies: pure HTML, CSS, and JavaScript
-    - Offline ready: works without internet
     - Mobile optimized
 
 ***
@@ -31,13 +30,13 @@ Live demo: https://mahsanneyaz.github.io/3rd-sem-timetable/
 
 | Time | Monday | Tuesday | Wednesday | Thursday | Friday |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| 9:30–10:30 | SYF | DCN | OS | OS | DBMS |
-| 10:30–11:30 | SYF | ELI | DBMS | Env. Studies | SPSS |
-| 11:30–12:30 | DCN | OS | Env. Studies | DCN | SPSS |
-| 12:30–1:30 | German/French | Env. Studies | SYF | DBMS | German/French |
+| 9:30–10:30 | Sports, Yoga \& Fitness | Data Communication \& Networks | Operating Systems Concept | Operating Systems Concept | Database Management Systems |
+| 10:30–11:30 | Sports, Yoga \& Fitness | Electoral Literacy in India | Database Management Systems | Env. Studies | SPSS |
+| 11:30–12:30 | Data Communication \& Networks | Operating Systems Concept | Env. Studies | Data Communication \& Networks | SPSS |
+| 12:30–1:30 | German/French | Env. Studies | Sports, Yoga \& Fitness | Database Management Systems | German/French |
 | 1:30–2:30 | LUNCH | LUNCH | LUNCH | LUNCH | LUNCH |
-| 2:30–3:30 | ELI | FREE | DCN | ELI | DBMS LAB |
-| 3:30–4:30 | Env. Studies | PS | PS | FREE | FREE |
+| 2:30–3:30 | Electoral Literacy in India | FREE | Data Communication \& Networks | Electoral Literacy in India | DBMS LAB |
+| 3:30–4:30 | Env. Studies | Presentation Skills | Presentation Skills | FREE | DBMS LAB |
 
 Notes:
 
@@ -106,7 +105,8 @@ Option 1: Direct use
 
 Option 2: GitHub Pages
 
-- Visit the live demo linked at the top
+- Visit the live demo linked
+- https://mahsanneyaz.github.io/3rd-sem-timetable/
 
 ***
 
