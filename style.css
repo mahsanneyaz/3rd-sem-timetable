@@ -866,7 +866,6 @@ select.form-control {
 .grid-time {
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-xs);
-  background-color: var(--color-bg-2);
 }
 
 .grid-cell {
