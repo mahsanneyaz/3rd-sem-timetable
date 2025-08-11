@@ -105,7 +105,7 @@ Option 1: Direct use
 
 Option 2: GitHub Pages
 
-- Visit the live demo linked
+- Visit the live demo link
 - https://mahsanneyaz.github.io/3rd-sem-timetable/
 
 ***
