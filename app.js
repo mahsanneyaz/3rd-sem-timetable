@@ -96,22 +96,22 @@ const aboutMeData = {
 
 const timetableData = {
   "timetable": {
-    "MONDAY": { "9:30-10:30": "SYF", "10:30-11:30": "SYF", "11:30-12:30": "DCN", "12:30-1:30": "German-I/French-I", "1:30-2:30": "LUNCH", "2:30-3:30": "Electoral Literacy in India", "3:30-4:30": "Env. Studies" },
-    "TUESDAY": { "9:30-10:30": "DCN", "10:30-11:30": "ELI", "11:30-12:30": "OS", "12:30-1:30": "Env. Studies", "1:30-2:30": "LUNCH", "2:30-3:30": "FREE", "3:30-4:30": "PS" },
-    "WEDNESDAY": { "9:30-10:30": "OS", "10:30-11:30": "DBMS", "11:30-12:30": "Env. Studies", "12:30-1:30": "SYF", "1:30-2:30": "LUNCH", "2:30-3:30": "DCN", "3:30-4:30": "PS" },
-    "THURSDAY": { "9:30-10:30": "OS", "10:30-11:30": "Env. Studies", "11:30-12:30": "DCN", "12:30-1:30": "DBMS", "1:30-2:30": "LUNCH", "2:30-3:30": "ELI", "3:30-4:30": "FREE" },
-    "FRIDAY": { "9:30-10:30": "DBMS", "10:30-11:30": "SPSS", "11:30-12:30": "SPSS", "12:30-1:30": "German-I/French-I", "1:30-2:30": "LUNCH", "2:30-3:30": "DBMS LAB", "3:30-4:30": "DBMS LAB" }
+    "MONDAY": { "9:30-10:30": "Sports,Yoga and Fitness", "10:30-11:30": "Sports,Yoga and Fitness", "11:30-12:30": "Data Communication & Networks", "12:30-1:30": "German-I/French-I", "1:30-2:30": "LUNCH", "2:30-3:30": "Electoral Literacy in India", "3:30-4:30": "Env. Studies" },
+    "TUESDAY": { "9:30-10:30": "Data Communication & Networks", "10:30-11:30": "ELI", "11:30-12:30": "Operating Systems Concept", "12:30-1:30": "Env. Studies", "1:30-2:30": "LUNCH", "2:30-3:30": "FREE", "3:30-4:30": "Presentation Skills" },
+    "WEDNESDAY": { "9:30-10:30": "Operating Systems Concept", "10:30-11:30": "Database Management Systems", "11:30-12:30": "Env. Studies", "12:30-1:30": "Sports,Yoga and Fitness", "1:30-2:30": "LUNCH", "2:30-3:30": "Data Communication & Networks", "3:30-4:30": "Presentation Skills" },
+    "THURSDAY": { "9:30-10:30": "Operating Systems Concept", "10:30-11:30": "Env. Studies", "11:30-12:30": "Data Communication & Networks", "12:30-1:30": "Database Management Systems", "1:30-2:30": "LUNCH", "2:30-3:30": "ELI", "3:30-4:30": "FREE" },
+    "FRIDAY": { "9:30-10:30": "Database Management Systems", "10:30-11:30": "SPSS", "11:30-12:30": "SPSS", "12:30-1:30": "German-I/French-I", "1:30-2:30": "LUNCH", "2:30-3:30": "DBMS LAB", "3:30-4:30": "DBMS LAB" }
   },
   "subjects": {
-    "DBMS": { "code": "24BCA301", "name": "Database Management Systems (DBMS)", "faculty": "Dr. Kaleem", "department": "CSE" },
-    "DCN": { "code": "24BCA302", "name": "Data Communication and Networks (DCN)", "faculty": "Dr. Syed Mohtashim Mian", "department": "CSE" },
-    "OS": { "code": "24BCA303", "name": "Operating Systems Concept (OS)", "faculty": "Mr. Rachit", "department": "CSE" },
+    "Database Management Systems": { "code": "24BCA301", "name": "Database Management Systems (DBMS)", "faculty": "Dr. Kaleem", "department": "CSE" },
+    "Data Communication & Networks": { "code": "24BCA302", "name": "Data Communication and Networks (DCN)", "faculty": "Dr. Syed Mohtashim Mian", "department": "CSE" },
+    "Operating Systems Concept": { "code": "24BCA303", "name": "Operating Systems Concept (OS)", "faculty": "Mr. Rachit", "department": "CSE" },
     "DBMS LAB": { "code": "24BCA304", "name": "Database Management Systems Lab (DBMS LAB)", "faculty": "Dr. Kaleem", "department": "CSE" },
     "Env. Studies": { "code": "23ESUG201", "name": "Environmental Studies (Env. Studies)", "faculty": "NF", "department": "ENV. SCIENCE" },
     "Electoral Literacy in India": { "code": "24MDCxx", "name": "Electoral Literacy in India (ELI)", "faculty": "NF", "department": "POL.SC." },
     "German-I/French-I": { "code": "23AECxxx", "name": "German-I/French-I", "faculty": "Mr.Sudip Das/Mr.Ashish Verma", "department": "LANGUAGE" },
-    "SYF": { "code": "23VACxxx", "name": "Sports,Yoga and Fitness (SYF)", "faculty": "Ms.Komal", "department": "SPORTS" },
-    "PS": { "code": "23SS353", "name": "Presentation Skills (PS)", "faculty": "NF-A", "department": "PD" },
+    "Sports,Yoga and Fitness": { "code": "23VACxxx", "name": "Sports,Yoga and Fitness (SYF)", "faculty": "Ms.Komal", "department": "SPORTS" },
+    "Presentation Skills": { "code": "23SS353", "name": "Presentation Skills (PS)", "faculty": "NF-A", "department": "PD" },
     "SPSS": { "code": "23SS303", "name": "Statistical Skills with SPSS (SPSS)", "faculty": "Dr.Rashi Malik", "department": "MBA" }
   },
   "timeSlots": ["9:30-10:30", "10:30-11:30", "11:30-12:30", "12:30-1:30", "1:30-2:30", "2:30-3:30", "3:30-4:30"],
