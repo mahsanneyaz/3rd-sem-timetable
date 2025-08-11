@@ -160,7 +160,7 @@ Option 2: GitHub Pages
 - Registration: 42224210112
 - BCA III Semester, Section B
 - SRM University Delhi-NCR
-- “Work smart. Stay consistent. Always keep growing.”
+- > “Work smart. Stay consistent. Always keep growing.”
 
 ***
 
