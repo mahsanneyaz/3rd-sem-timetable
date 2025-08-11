@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!grid) return;
     grid.innerHTML = '';
 
-    grid.appendChild(Object.assign(document.createElement('div'), { className: 'grid-header', textContent: 'Time/Day' }));
+    grid.appendChild(Object.assign(document.createElement('div'), { className: 'grid-header', textContent: \t'Day'\n 'Time' }));
     timetableData.days.forEach(function (day) {
       grid.appendChild(Object.assign(document.createElement('div'), { className: 'grid-header', textContent: formatDayName(day) }));
     });
