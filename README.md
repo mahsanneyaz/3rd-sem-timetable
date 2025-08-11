@@ -1,6 +1,6 @@
-# 🎓 Interactive BCA 3B Timetable
+# BCA 3B Interactive Timetable
 
-A web application to view and manage the BCA 3B timetable for SRM University Delhi-NCR, built with HTML, CSS, and JavaScript. Designed for performance, accessibility, and a delightful user experience across devices.
+Web app to display and manage the SRM University Delhi-NCR BCA 3B timetable, built with semantic HTML, modern CSS, and vanilla JavaScript. Optimized for performance, accessibility, and a pleasant user experience across devices.
 
 Live demo: https://mahsanneyaz.github.io/3rd-sem-timetable/
 
@@ -8,21 +8,21 @@ Live demo: https://mahsanneyaz.github.io/3rd-sem-timetable/
 
 ## ✨ Features
 
-- Modern design system
-    - Dark/light themes with system preference detection
-    - Teal \& charcoal color palette for optimal readability
-    - Responsive grid layout with smooth animations
-- Smart time management
-    - Live clock 
-    - Highlights today’s schedule and the current class slot
+- Up-to-date design system
+    - Dark and light themes with system preference detection
+    - Teal and charcoal color scheme for sturdy readability
+- Responsive grid layout with fluid, reduced-motion-friendly animations
+- Intelligent time management
+    - Live clock
+    - Emphasizes today’s schedule and the current class slot
 - Interactive UI
-    - Click any subject to view details (faculty, code, department)
-    - Student list: 79 students with registration numbers
+    - Click any subject to see details (faculty, code, department)
+    - Student directory: 79 students with registration numbers
     - Faculty directory for coordinators and subjects
-    - Personal profile for Mohammad Ahsan Neyaz
-- Technical excellence
-    - Zero dependencies: pure HTML, CSS, and JavaScript
-    - Mobile optimized
+- Personal profile section for Mohammad Ahsan Neyaz
+- Technical superiority
+    - No dependencies: plain HTML, CSS, and JavaScript
+    - Mobile friendly, offline-friendly
 
 ***
 
@@ -30,40 +30,40 @@ Live demo: https://mahsanneyaz.github.io/3rd-sem-timetable/
 
 | Time | Monday | Tuesday | Wednesday | Thursday | Friday |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| 9:30–10:30 | Sports, Yoga \& Fitness | Data Communication \& Networks | Operating Systems Concept | Operating Systems Concept | Database Management Systems |
-| 10:30–11:30 | Sports, Yoga \& Fitness | Electoral Literacy in India | Database Management Systems | Env. Studies | SPSS |
+| 9:30–10:30 | Sports, Yoga and Fitness | Data Communication \& Networks | Operating Systems Concept | Operating Systems Concept | Database Management Systems |
+| 10:30–11:30 | Sports, Yoga and Fitness | Electoral Literacy in India | Database Management Systems | Env. Studies | SPSS |
 | 11:30–12:30 | Data Communication \& Networks | Operating Systems Concept | Env. Studies | Data Communication \& Networks | SPSS |
-| 12:30–1:30 | German/French | Env. Studies | Sports, Yoga \& Fitness | Database Management Systems | German/French |
+| 12:30–1:30 | German/French | Env. Studies | Sports, Yoga and Fitness | Database Management Systems | German/French |
 | 1:30–2:30 | LUNCH | LUNCH | LUNCH | LUNCH | LUNCH |
-| 2:30–3:30 | Electoral Literacy in India | FREE | Data Communication \& Networks | Electoral Literacy in India | DBMS LAB |
+| 2:30–3:30 | Electoral Literacy in India | FREE | Data Communication and Networks | Electoral Literacy in India | DBMS LAB |
 | 3:30–4:30 | Env. Studies | Presentation Skills | Presentation Skills | FREE | DBMS LAB |
 
-Notes:
+Notes
 
-- Current day is highlighted.
+- Current day is emphasized.
 - Current time slot pulses while active.
 
 ***
 
-## 📚 Subjects \& Faculty
+## 📚 Subjects and Faculty
 
 | Subject | Code | Faculty | Department |
 | :-- | :-- | :-- | :-- |
 | Database Management Systems | 24BCA301 | Dr. Kaleem | CSE |
-| Data Communication \& Networks | 24BCA302 | Dr. Syed Mohtashim Mian | CSE |
+| Data Communication and Networks | 24BCA302 | Dr. Syed Mohtashim Mian | CSE |
 | Operating Systems Concept | 24BCA303 | Mr. Rachit | CSE |
 | DBMS Laboratory | 24BCA304 | Dr. Kaleem | CSE |
 | Environmental Studies | 23ESUG201 | NF | ENV. SCIENCE |
 | Electoral Literacy in India | 24MDCxx | NF | POL.SC. |
 | German-I/French-I | 23AECxxx | Mr. Sudip Das / Mr. Ashish Verma | LANGUAGE |
-| Sports, Yoga \& Fitness | 23VACxxx | Ms. Komal | SPORTS |
+| Sports, Yoga and Fitness | 23VACxxx | Ms. Komal | SPORTS |
 | Presentation Skills | 23SS353 | NF-A | PD |
-| Statistical Skills with SPSS | 23SS303 | Dr. Rashi Malik | MBA |
+| Statistical Skills using SPSS | 23SS303 | Dr. Rashi Malik | MBA |
 
 
 ***
 
-## 👨🎓 Class \& Student Info
+## 🎓 Class and Student Info
 
 - Program: Bachelor of Computer Applications (B.C.A.)
 - Semester: III (3rd Semester)
@@ -82,43 +82,43 @@ Notes:
 Navigation:
 
 - Click any subject → view detailed information
-- Click “Total Students: 79” → view complete list
-- Click “Class In-Charge: Ms. Arul” → faculty details
-- Click any student name → open personal details (where available)
-- Toggle theme in the top-right corner (dark/light)
+- “Total Students: 79” → view full list
+- “Class In-Charge: Ms. Arul” → staff details
+- Any student name → open personal details (where applicable)
+- Toggle theme at the top-right (dark/light)
 
 Current class detection:
 
 - Today’s row is highlighted
 - Current time slot animates
-- Active subject is emphasized
+- Active subject is highlighted
 
 ***
 
-## 🚀 Quick Start
+## ⚡ Quick Start
 
 Option 1: Direct use
 
 1. Download this repository
 2. Open index.html in any modern web browser
-3. Enjoy your interactive timetable
+3. Enjoy the interactive timetable
 
 Option 2: GitHub Pages
 
-- Visit the live demo link
+- Open the live demo:
 - https://mahsanneyaz.github.io/3rd-sem-timetable/
 
 ***
 
 ## 🛠️ Tech Stack
 
-- HTML5 semantic structure
-- CSS3 with custom properties, grid, and flexbox
+- Semantic HTML5
+- CSS3 with custom properties, Grid, and Flexbox
 - Vanilla JavaScript
-- Design system with 800+ lines of professional CSS
-- Color-scheme support with system preference detection
+- Design system with a professional, 800+ line CSS file
+- color-scheme support with system preference detection
 - Responsive breakpoints for all device sizes
-- Zero dependencies and offline-capable
+- No dependencies and offline-friendly
 
 ***
 
@@ -127,34 +127,34 @@ Option 2: GitHub Pages
 ```
 3rd-sem-timetable/
 ├── index.html          # Main HTML structure
-├── style.css           # Design system & styling
-├── app.js              # App logic & data
-└── README.md           # Documentation
+├── style.css           # Styling & design system
+├── app.js              # App data & logic
+└── README.md           # Docs
 ```
 
 
 ***
 
-## 🤖 Accessibility \& Performance
+## ♿ Accessibility \& Performance
 
-- High-contrast theme options
-- Prefers-reduced-motion friendly animations
-- Lightweight, dependency-free bundle
+- Reduced-motion-friendly animations
+- High-contrast, legible color choices
+- Lightweight, dependency-free package
 
 ***
 
-## 🎯 Roadmap
+## 🗺️ Roadmap
 
-- Exam schedule integration
+- Integration of exam schedule
 - Assignment tracker module
 - Attendance calculator
-- Notes \& reminders system
-- Export to calendar (ICS)
-- Offline sync with local storage
+- Notes and reminders system
+- Export to calendar
+- sync with storage
 
 ***
 
-## 👨💻 About Me
+## 👤 About Me
 
 - Mohammad Ahsan Neyaz
 - Registration: 42224210112
@@ -171,32 +171,24 @@ Contributions, issues, and feature requests are welcome!
 - Fork the repo
 - Create a feature branch
 - Commit changes with clear messages
-- Open a pull request with context and screenshots (if UI-related)
+- Open a pull request with context and screenshots (for UI)
 
-Good first contributions:
+Good first issues:
 
-- Add unit data validation for timetable entries
-- Improve accessibility labels
-- Enhance mobile layout for very small screens
+- Implement unit data validation for timetable entries
+- Fix accessibility labels
+- Enhance mobile layout for extremely small screens
 - Add tests for time-slot detection logic
 
 ***
 
-## 🧪 Local Development Tips
+## 🔑 License
 
-- Use a local server for consistent file loading (e.g., VS Code Live Server)
-- Set system theme to test automatic dark/light detection
-- Adjust timetable data in app.js to update schedule and metadata
-
-***
-
-## 📄 License
-
-This project is open source.
+This is an open source project.
 
 ***
 
 ## ⭐ Acknowledgments
 
-Made with ❤️ for BCA 3B students at SRM University Delhi-NCR.
-If this project helps, consider starring the repository and sharing it with classmates.
+Created with ❤️ for BCA 3B students at SRM University Delhi-NCR.
+If this project is useful, please star the repository and share it with classmates.
