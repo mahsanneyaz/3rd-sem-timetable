@@ -96,7 +96,7 @@ const aboutMeData = {
 
 const timetableData = {
   "timetable": {
-    "MONDAY": { "9:30-10:30": "SYF", "10:30-11:30": "SYF", "11:30-12:30": "DCN", "12:30-1:30": "German-I/French-I", "1:30-2:30": "LUNCH", "2:30-3:30": "ELI", "3:30-4:30": "Env. Studies" },
+    "MONDAY": { "9:30-10:30": "SYF", "10:30-11:30": "SYF", "11:30-12:30": "DCN", "12:30-1:30": "German-I/French-I", "1:30-2:30": "LUNCH", "2:30-3:30": "Electoral Literacy in India", "3:30-4:30": "Env. Studies" },
     "TUESDAY": { "9:30-10:30": "DCN", "10:30-11:30": "ELI", "11:30-12:30": "OS", "12:30-1:30": "Env. Studies", "1:30-2:30": "LUNCH", "2:30-3:30": "FREE", "3:30-4:30": "PS" },
     "WEDNESDAY": { "9:30-10:30": "OS", "10:30-11:30": "DBMS", "11:30-12:30": "Env. Studies", "12:30-1:30": "SYF", "1:30-2:30": "LUNCH", "2:30-3:30": "DCN", "3:30-4:30": "PS" },
     "THURSDAY": { "9:30-10:30": "OS", "10:30-11:30": "Env. Studies", "11:30-12:30": "DCN", "12:30-1:30": "DBMS", "1:30-2:30": "LUNCH", "2:30-3:30": "ELI", "3:30-4:30": "FREE" },
