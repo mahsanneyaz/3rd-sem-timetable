@@ -97,9 +97,9 @@ const aboutMeData = {
 const timetableData = {
   "timetable": {
     "MONDAY": { "9:30-10:30": "Sports,Yoga and Fitness", "10:30-11:30": "Sports,Yoga and Fitness", "11:30-12:30": "Data Communication & Networks", "12:30-1:30": "German-I/French-I", "1:30-2:30": "LUNCH", "2:30-3:30": "Electoral Literacy in India", "3:30-4:30": "Env. Studies" },
-    "TUESDAY": { "9:30-10:30": "Data Communication & Networks", "10:30-11:30": "ELI", "11:30-12:30": "Operating Systems Concept", "12:30-1:30": "Env. Studies", "1:30-2:30": "LUNCH", "2:30-3:30": "FREE", "3:30-4:30": "Presentation Skills" },
+    "TUESDAY": { "9:30-10:30": "Data Communication & Networks", "10:30-11:30": "Electoral Literacy in India", "11:30-12:30": "Operating Systems Concept", "12:30-1:30": "Env. Studies", "1:30-2:30": "LUNCH", "2:30-3:30": "FREE", "3:30-4:30": "Presentation Skills" },
     "WEDNESDAY": { "9:30-10:30": "Operating Systems Concept", "10:30-11:30": "Database Management Systems", "11:30-12:30": "Env. Studies", "12:30-1:30": "Sports,Yoga and Fitness", "1:30-2:30": "LUNCH", "2:30-3:30": "Data Communication & Networks", "3:30-4:30": "Presentation Skills" },
-    "THURSDAY": { "9:30-10:30": "Operating Systems Concept", "10:30-11:30": "Env. Studies", "11:30-12:30": "Data Communication & Networks", "12:30-1:30": "Database Management Systems", "1:30-2:30": "LUNCH", "2:30-3:30": "ELI", "3:30-4:30": "FREE" },
+    "THURSDAY": { "9:30-10:30": "Operating Systems Concept", "10:30-11:30": "Env. Studies", "11:30-12:30": "Data Communication & Networks", "12:30-1:30": "Database Management Systems", "1:30-2:30": "LUNCH", "2:30-3:30": "Electoral Literacy in India", "3:30-4:30": "FREE" },
     "FRIDAY": { "9:30-10:30": "Database Management Systems", "10:30-11:30": "SPSS", "11:30-12:30": "SPSS", "12:30-1:30": "German-I/French-I", "1:30-2:30": "LUNCH", "2:30-3:30": "DBMS LAB", "3:30-4:30": "DBMS LAB" }
   },
   "subjects": {
