@@ -732,6 +732,22 @@ select.form-control {
   color: var(--color-primary);
 }
 
+.university-info {
+  display: flex;
+  align-items: center;
+  /* This vertically aligns the logo and the text block */
+  gap: 16px;
+  /* This adds a nice space between the logo and the text */
+  flex: 1;
+}
+
+.university-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Aligns the text to the left */
+}
+
 .program-details {
   display: flex;
   align-items: center;
