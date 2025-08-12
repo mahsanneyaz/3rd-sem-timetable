@@ -172,11 +172,26 @@ document.addEventListener('DOMContentLoaded', function () {
     timetableData.timeSlots.forEach(function (timeSlot) {
       grid.appendChild(Object.assign(document.createElement('div'), { className: 'grid-time', textContent: timeSlot }));
       timetableData.days.forEach(function (day) {
-        // REPLACED: Modern optional chaining (?.) with older, more compatible logical AND (&&)
         const subject = timetableData.timetable[day] && timetableData.timetable[day][timeSlot];
         const cell = document.createElement('div');
         cell.className = 'grid-cell';
-        cell.textContent = subject || 'FREE';
+
+        // ** START: New logic for abbreviations **
+        let cellText = subject || 'FREE';
+        // Check if on a mobile-sized screen and there is a subject
+        if (subject && window.innerWidth < 768) {
+          const subjectDetails = timetableData.subjects[subject];
+          if (subjectDetails) {
+            // Find the abbreviation in parentheses, like (DBMS)
+            const match = subjectDetails.name.match(/\(([^)]+)\)$/);
+            if (match) {
+              cellText = match[1]; // Use the abbreviation
+            }
+          }
+        }
+        cell.textContent = cellText;
+        // ** END: New logic for abbreviations **
+
         cell.setAttribute('data-subject', subject || 'FREE');
         cell.setAttribute('data-time', timeSlot);
         cell.setAttribute('data-day', day);
