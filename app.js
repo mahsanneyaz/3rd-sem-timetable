@@ -108,7 +108,7 @@ const timetableData = {
     "Operating Systems Concept": { "code": "24BCA303", "name": "Operating Systems Concept (OS)", "faculty": "Mr. Rachit", "department": "CSE" },
     "DBMS LAB": { "code": "24BCA304", "name": "Database Management Systems Lab (DBMS LAB)", "faculty": "Dr. Kaleem", "department": "CSE" },
     "Env. Studies": { "code": "23ESUG201", "name": "Environmental Studies (Env. Studies)", "faculty": "NF", "department": "ENV. SCIENCE" },
-    "Electoral Literacy in India": { "code": "24MDCxx", "name": "Electoral Literacy in India (ELI)", "faculty": "NF", "department": "POL.SC." },
+    "Electoral Literacy in India": { "code": "24MDCxx", "name": "Electoral Literacy in India (ELI)", "faculty": "Abhishank", "department": "POL.SC." },
     "German-I/French-I": { "code": "23AECxxx", "name": "German-I/French-I", "faculty": "Mr.Sudip Das/Mr.Ashish Verma", "department": "LANGUAGE" },
     "Sports,Yoga and Fitness": { "code": "23VACxxx", "name": "Sports,Yoga and Fitness (SYF)", "faculty": "Ms.Komal", "department": "SPORTS" },
     "Presentation Skills": { "code": "23SS353", "name": "Presentation Skills (PS)", "faculty": "NF-A", "department": "PD" },
