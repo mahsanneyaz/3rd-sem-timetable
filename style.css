@@ -22,6 +22,11 @@
   --color-red-500: rgba(192, 21, 47, 1);
   --color-orange-400: rgba(230, 129, 97, 1);
   --color-orange-500: rgba(168, 75, 47, 1);
+  --color-blue-400: rgba(96, 165, 250, 1);
+  --color-blue-500: rgba(59, 130, 246, 1);
+  --color-green-400: rgba(74, 222, 128, 1);
+  --color-green-500: rgba(34, 197, 94, 1);
+
 
   /* RGB versions for opacity control */
   --color-brown-600-rgb: 94, 82, 64;
@@ -72,6 +77,9 @@
   --color-info: var(--color-slate-500);
   --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
   --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+  --color-exam: var(--color-blue-500);
+  --color-assignment: var(--color-green-500);
+
 
   /* Common style patterns */
   --focus-ring: 0 0 0 3px var(--color-focus-ring);
@@ -202,6 +210,9 @@
     inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
   --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+  --color-exam: var(--color-blue-400);
+  --color-assignment: var(--color-green-400);
+
 
   /* Common style patterns - updated for dark mode */
   --select-caret: var(--select-caret-dark);
@@ -992,6 +1003,7 @@ select.form-control {
   height: 16px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
+  flex-shrink: 0;
 }
 
 .color-box.subject {
@@ -1231,6 +1243,219 @@ select.form-control {
   /* Do not change color on hover */
 }
 
+/* Calendar Styles */
+#dateTimeTrigger {
+  cursor: pointer;
+}
+
+.calendar-container {
+  padding: var(--space-8);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-16);
+}
+
+.calendar-header h4 {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.calendar-header button {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: bold;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  transition: background-color var(--duration-fast);
+}
+
+.calendar-header button:hover {
+  background: var(--color-secondary-hover);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--space-4);
+  text-align: center;
+}
+
+.calendar-grid div {
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+}
+
+.calendar-day-header {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+}
+
+.calendar-day {
+  color: var(--color-text);
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: var(--space-4);
+  gap: var(--space-4);
+}
+
+.calendar-day.current-day>span {
+  background-color: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  font-weight: var(--font-weight-bold);
+  border-radius: var(--radius-full);
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.event-dots-container {
+  display: flex;
+  gap: 3px;
+  height: 5px;
+  /* Reserve space for dots */
+}
+
+.event-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot-holiday {
+  background-color: var(--color-error);
+}
+
+.dot-exam {
+  background-color: var(--color-exam);
+}
+
+.dot-assignment {
+  background-color: var(--color-assignment);
+}
+
+
+/* Custom Tooltip Styles */
+.custom-tooltip {
+  position: fixed;
+  background-color: var(--color-charcoal-700);
+  color: var(--color-cream-50);
+  padding: var(--space-12);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  z-index: 1001;
+  pointer-events: none;
+  opacity: 0;
+  transform-origin: top center;
+  transform: scale(0.95) translateY(10px);
+  transition: opacity var(--duration-fast) ease-in-out, transform var(--duration-fast) ease-in-out;
+  max-width: 280px;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.custom-tooltip.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.custom-tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent var(--color-charcoal-700) transparent;
+}
+
+.custom-tooltip.position-top {
+  transform-origin: bottom center;
+}
+
+.custom-tooltip.position-top::after {
+  top: 100%;
+  bottom: auto;
+  transform: translateX(-50%) rotate(180deg);
+}
+
+.tooltip-event-item {
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--space-12);
+  border-left-width: 3px;
+  border-left-style: solid;
+}
+
+.tooltip-event-item+.tooltip-event-item {
+  margin-top: var(--space-8);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border);
+}
+
+.tooltip-event-item.item-exam {
+  border-left-color: var(--color-exam);
+}
+
+.tooltip-event-item.item-assignment {
+  border-left-color: var(--color-assignment);
+}
+
+.tooltip-event-item.item-holiday {
+  border-left-color: var(--color-error);
+}
+
+.tooltip-event-item strong {
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-2);
+}
+
+.tooltip-event-item span {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-300);
+}
+
+.tooltip-event-item small {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray-400);
+  margin-top: var(--space-4);
+  line-height: 1.4;
+}
+
+
+[data-color-scheme="light"] .custom-tooltip {
+  background-color: var(--color-slate-900);
+  color: var(--color-cream-100);
+  border-color: transparent;
+}
+
+[data-color-scheme="light"] .custom-tooltip::after {
+  border-color: transparent transparent var(--color-slate-900) transparent;
+}
+
+[data-color-scheme="light"] .tooltip-event-item+.tooltip-event-item {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {

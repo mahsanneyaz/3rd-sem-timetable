@@ -118,10 +118,64 @@ const timetableData = {
   "days": ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY"]
 };
 
-// This listener ensures that the script runs only after the entire HTML page has been loaded.
-document.addEventListener('DOMContentLoaded', function () {
+// ===================================================================================
+// ACADEMIC EVENTS - THIS IS WHERE TO ADD EXAMS, ASSIGNMENTS, AND HOLIDAYS
+// ===================================================================================
+const academicEvents = {
+  // --- HOLIDAYS (UPDATED LIST) ---
+  "2025-08-09": [{ type: "holiday", remarks: "Raksha bandhan" }],
+  "2025-08-15": [{ type: "holiday", remarks: "Independence Day" }],
+  "2025-09-05": [{ type: "holiday", remarks: "Milad-un-nabi" }],
+  "2025-09-22": [{ type: "holiday", remarks: "Maharaja Agrasen Jayanti" }],
+  "2025-09-23": [{ type: "holiday", remarks: "Haryana War heroes Martyrdom Day" }],
+  "2025-10-02": [{ type: "holiday", remarks: "Mahatma Gandhi Jayanti/Dussehra" }],
+  "2025-10-07": [{ type: "holiday", remarks: "Maharishi Valmiki / Maharaja Ajmidh jayanti" }],
+  "2025-10-20": [{ type: "holiday", remarks: "Diwali" }],
+  "2025-10-21": [{ type: "holiday", remarks: "Diwali" }],
+  "2025-11-05": [{ type: "holiday", remarks: "Guru nanak dev jayanti" }],
+  "2025-12-03": [{ type: "holiday", remarks: "Preparatory Leave" }],
+  "2025-12-25": [{ type: "holiday", remarks: "Christmas" }],
+  "2026-01-01": [{ type: "holiday", remarks: "Semester Break" }],
 
-  // All functions are defined here to keep them organized.
+  // --- EXAMS (EXAMPLES) ---
+  /*"2025-09-15": [
+    {
+      type: "exam",
+      name: "Internal Assessment 1",
+      subject: "Database Management Systems",
+      time: "10:30 AM - 11:30 AM",
+      topics: "SQL Joins, Normalization (1NF, 2NF, 3NF)"
+    }
+  ],
+
+  // --- ASSIGNMENTS (EXAMPLES) ---
+  "2025-09-26": [
+    {
+      type: "assignment",
+      subject: "Env. Studies",
+      task: "Prepare a report on local water pollution.",
+      dueDate: "2025-09-26"
+    },
+    {
+      type: "exam",
+      name: "Internal Assessment 1",
+      subject: "Database Management Systems",
+      time: "10:30 AM - 11:30 AM",
+      topics: "SQL Joins, Normalization (1NF, 2NF, 3NF)"
+    }
+  ]*/
+};
+// ===================================================================================
+// END OF ACADEMIC EVENTS SECTION
+// ===================================================================================
+
+
+let cal_current_date = new Date();
+let cal_current_month = cal_current_date.getMonth();
+let cal_current_year = cal_current_date.getFullYear();
+
+
+document.addEventListener('DOMContentLoaded', function () {
 
   function initTheme() {
     const themeToggle = document.getElementById('themeToggle');
@@ -144,16 +198,13 @@ document.addEventListener('DOMContentLoaded', function () {
   function updateDateTime() {
     const now = new Date();
     const dateOptions = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
-
     const hours = now.getHours();
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
-
     const displayHours = hours % 12 || 12;
     const displayMinutes = minutes < 10 ? '0' + minutes : minutes;
     const displaySeconds = seconds < 10 ? '0' + seconds : seconds;
     const ampm = hours >= 12 ? 'PM' : 'AM';
-
     document.getElementById('currentTime').innerHTML =
       `${displayHours}:${displayMinutes}<span class="time-seconds">:${displaySeconds}</span> ${ampm}`;
     document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', dateOptions);
@@ -163,39 +214,30 @@ document.addEventListener('DOMContentLoaded', function () {
     const grid = document.getElementById('timetableGrid');
     if (!grid) return;
     grid.innerHTML = '';
-
     grid.appendChild(Object.assign(document.createElement('div'), { className: 'grid-header', textContent: 'Time/Day' }));
     timetableData.days.forEach(function (day) {
       grid.appendChild(Object.assign(document.createElement('div'), { className: 'grid-header', textContent: formatDayName(day) }));
     });
-
     timetableData.timeSlots.forEach(function (timeSlot) {
       grid.appendChild(Object.assign(document.createElement('div'), { className: 'grid-time', textContent: timeSlot }));
       timetableData.days.forEach(function (day) {
         const subject = timetableData.timetable[day] && timetableData.timetable[day][timeSlot];
         const cell = document.createElement('div');
         cell.className = 'grid-cell';
-
-        // ** START: New logic for abbreviations **
         let cellText = subject || 'FREE';
-        // Check if on a mobile-sized screen and there is a subject
         if (subject && window.innerWidth < 768) {
           const subjectDetails = timetableData.subjects[subject];
           if (subjectDetails) {
-            // Find the abbreviation in parentheses, like (DBMS)
             const match = subjectDetails.name.match(/\(([^)]+)\)$/);
             if (match) {
-              cellText = match[1]; // Use the abbreviation
+              cellText = match[1];
             }
           }
         }
         cell.textContent = cellText;
-        // ** END: New logic for abbreviations **
-
         cell.setAttribute('data-subject', subject || 'FREE');
         cell.setAttribute('data-time', timeSlot);
         cell.setAttribute('data-day', day);
-
         if (subject === 'LUNCH') {
           cell.classList.add('lunch');
         } else if (!subject || subject === 'FREE') {
@@ -206,7 +248,6 @@ document.addEventListener('DOMContentLoaded', function () {
             showModal('subjectModal', { subject: subject, timeSlot: timeSlot, day: day });
           });
         }
-
         if (day === getCurrentDay()) {
           cell.classList.add('today');
         }
@@ -256,22 +297,20 @@ document.addEventListener('DOMContentLoaded', function () {
           container.innerHTML += `<div class="detail-row"><span class="detail-label">${key}:</span><span class="detail-value">${aboutMeData[key]}</span></div>`;
         }
       }
+    } else if (modalId === 'calendarModal') {
+      renderCalendar();
     }
   }
 
   function renderStudentList(section) {
     const container = document.getElementById('studentListContainer');
     const data = section === 'A' ? studentDataA : studentDataB;
-    var tableHTML = `
-            <table class="student-table">
-                <thead><tr><th>Sl.No.</th><th>Name</th><th>Register No.</th></tr></thead>
-                <tbody>`;
+    var tableHTML = `<table class="student-table"><thead><tr><th>Sl.No.</th><th>Name</th><th>Register No.</th></tr></thead><tbody>`;
     data.forEach(function (s) {
       tableHTML += `<tr><td>${s.no}</td><td>${s.name}</td><td>${s.reg}</td></tr>`;
     });
     tableHTML += `</tbody></table>`;
     container.innerHTML = tableHTML;
-
     document.querySelectorAll('#studentModal .tab-btn').forEach(function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-section') === section);
     });
@@ -281,55 +320,177 @@ document.addEventListener('DOMContentLoaded', function () {
     const container = document.getElementById('facultyListContainer');
     const facultyList = [];
     const uniqueFaculty = {};
-
-    // Create a unique list of faculty
     Object.keys(timetableData.subjects).forEach(function (key) {
       var subject = timetableData.subjects[key];
       if (subject.faculty !== 'NF' && subject.faculty !== 'NF-A' && !uniqueFaculty[subject.faculty]) {
-        uniqueFaculty[subject.faculty] = {
-          name: subject.faculty,
-          department: subject.department,
-          subjects: []
-        };
+        uniqueFaculty[subject.faculty] = { name: subject.faculty, department: subject.department, subjects: [] };
       }
     });
-
-    // Populate subjects for each faculty member
     Object.keys(timetableData.subjects).forEach(function (key) {
       var subject = timetableData.subjects[key];
       if (uniqueFaculty[subject.faculty]) {
         uniqueFaculty[subject.faculty].subjects.push(subject.name.replace(/\s*\(.*\)\s*$/, ''));
       }
     });
-
     for (var name in uniqueFaculty) {
       facultyList.push(uniqueFaculty[name]);
     }
-
-    facultyList.sort(function (a, b) {
-      return a.name.localeCompare(b.name);
-    });
-
-    var tableHTML = `
-            <table class="faculty-table">
-                <thead><tr><th>Faculty Name</th><th>Department</th><th>Subject(s)</th></tr></thead>
-                <tbody>`;
+    facultyList.sort((a, b) => a.name.localeCompare(b.name));
+    var tableHTML = `<table class="faculty-table"><thead><tr><th>Faculty Name</th><th>Department</th><th>Subject(s)</th></tr></thead><tbody>`;
     facultyList.forEach(function (f) {
-      tableHTML += `<tr>
-                <td>${f.name}</td>
-                <td>${f.department}</td>
-                <td>${f.subjects.join(', ')}</td>
-            </tr>`;
+      tableHTML += `<tr><td>${f.name}</td><td>${f.department}</td><td>${f.subjects.join(', ')}</td></tr>`;
     });
     tableHTML += `</tbody></table>`;
     container.innerHTML = tableHTML;
+  }
+
+  function renderCalendar() {
+    const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    document.getElementById('calendarTitle').textContent = `${monthNames[cal_current_month]} ${cal_current_year}`;
+    const firstDay = new Date(cal_current_year, cal_current_month, 1).getDay();
+    const daysInMonth = new Date(cal_current_year, cal_current_month + 1, 0).getDate();
+    const calendarGrid = document.getElementById('calendarGrid');
+    calendarGrid.innerHTML = '';
+    ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(day => {
+      calendarGrid.innerHTML += `<div class="calendar-day-header">${day}</div>`;
+    });
+    for (let i = 0; i < firstDay; i++) {
+      calendarGrid.innerHTML += `<div></div>`;
+    }
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dayEl = document.createElement('div');
+      dayEl.classList.add('calendar-day');
+      const dayContent = document.createElement('span');
+      dayContent.textContent = day;
+      dayEl.appendChild(dayContent);
+
+      const dateKey = `${cal_current_year}-${String(cal_current_month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+      const events = academicEvents[dateKey];
+
+      if (events && events.length > 0) {
+        const dotContainer = document.createElement('div');
+        dotContainer.className = 'event-dots-container';
+        const eventTypes = new Set(events.map(e => e.type));
+
+        let tooltipHTML = '';
+
+        eventTypes.forEach(type => {
+          const dot = document.createElement('div');
+          dot.className = `event-dot dot-${type}`;
+          dotContainer.appendChild(dot);
+        });
+
+        events.forEach(event => {
+          tooltipHTML += `<div class="tooltip-event-item item-${event.type}">`;
+          if (event.type === 'exam') {
+            tooltipHTML += `<strong>${event.name}</strong>`;
+            tooltipHTML += `<span>${event.subject} (${event.time})</span>`;
+            tooltipHTML += `<small>Topics: ${event.topics}</small>`;
+          } else if (event.type === 'assignment') {
+            tooltipHTML += `<strong>Assignment Due</strong>`;
+            tooltipHTML += `<span>${event.subject}</span>`;
+            tooltipHTML += `<small>Task: ${event.task}</small>`;
+          } else if (event.type === 'holiday') {
+            tooltipHTML += `<strong>Holiday</strong>`;
+            tooltipHTML += `<span>${event.remarks}</span>`;
+          }
+          tooltipHTML += `</div>`;
+        });
+
+        dayEl.appendChild(dotContainer);
+        dayEl.dataset.tooltipHtml = tooltipHTML;
+      }
+      if (day === new Date().getDate() && cal_current_month === new Date().getMonth() && cal_current_year === new Date().getFullYear()) {
+        dayEl.classList.add('current-day');
+      }
+      calendarGrid.appendChild(dayEl);
+    }
+  }
+
+  function bindCalendarEvents() {
+    const tooltip = document.getElementById('customTooltip');
+    const calendarGrid = document.getElementById('calendarGrid');
+    const calendarModal = document.getElementById('calendarModal');
+    let activeTooltipTarget = null;
+
+    function showTooltip(target) {
+      if (!target.dataset.tooltipHtml) return;
+
+      tooltip.innerHTML = target.dataset.tooltipHtml;
+      tooltip.classList.remove('position-top', 'visible');
+
+      tooltip.style.visibility = 'hidden';
+      tooltip.style.display = 'block';
+      const tooltipHeight = tooltip.offsetHeight;
+      tooltip.style.display = '';
+      tooltip.style.visibility = '';
+
+      const rect = target.getBoundingClientRect();
+
+      if ((rect.bottom + tooltipHeight + 20) > window.innerHeight) {
+        tooltip.style.top = `${rect.top - tooltipHeight - 12}px`;
+        tooltip.classList.add('position-top');
+      } else {
+        tooltip.style.top = `${rect.bottom + 12}px`;
+      }
+
+      tooltip.style.left = `${rect.left + rect.width / 2}px`;
+      tooltip.style.transform = 'translateX(-50%)';
+      tooltip.classList.add('visible');
+      activeTooltipTarget = target;
+    }
+
+    function hideTooltip() {
+      tooltip.classList.remove('visible');
+      activeTooltipTarget = null;
+    }
+
+    // This is the main click handler for both mobile and desktop.
+    calendarGrid.addEventListener('click', (e) => {
+      // Use .closest() to ensure the entire cell is the target
+      const target = e.target.closest('.calendar-day[data-tooltip-html]');
+      if (target) {
+        if (activeTooltipTarget === target) {
+          hideTooltip();
+        } else {
+          showTooltip(target);
+        }
+      }
+    });
+
+    // Hide the tooltip if you click anywhere else in the modal that isn't the grid.
+    calendarModal.addEventListener('click', (e) => {
+      if (!e.target.closest('.calendar-grid')) {
+        hideTooltip();
+      }
+    });
+
+    // --- Modal and Navigation Button Events ---
+    document.getElementById('dateTimeTrigger').addEventListener('click', function () {
+      showModal('calendarModal');
+    });
+    document.getElementById('prevMonthBtn').addEventListener('click', () => {
+      cal_current_month--;
+      if (cal_current_month < 0) {
+        cal_current_month = 11;
+        cal_current_year--;
+      }
+      renderCalendar();
+    });
+    document.getElementById('nextMonthBtn').addEventListener('click', () => {
+      cal_current_month++;
+      if (cal_current_month > 11) {
+        cal_current_month = 0;
+        cal_current_year++;
+      }
+      renderCalendar();
+    });
   }
 
   function bindModalEvents() {
     document.querySelectorAll('.modal').forEach(function (modal) {
       const closeBtn = modal.querySelector('.modal-close');
       const overlay = modal.querySelector('.modal-overlay');
-
       if (closeBtn) {
         closeBtn.addEventListener('click', function () { hideModal(modal); });
       }
@@ -337,13 +498,11 @@ document.addEventListener('DOMContentLoaded', function () {
         overlay.addEventListener('click', function () { hideModal(modal); });
       }
     });
-
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
         document.querySelectorAll('.modal:not(.hidden)').forEach(hideModal);
       }
     });
-
     const studentModalTabs = document.querySelector('#studentModal .modal-tabs');
     if (studentModalTabs) {
       studentModalTabs.addEventListener('click', function (e) {
@@ -407,6 +566,7 @@ document.addEventListener('DOMContentLoaded', function () {
   generateTimetable();
   bindModalEvents();
   bindFooterLinks();
+  bindCalendarEvents();
   updateLiveHighlighting();
 
   setInterval(updateDateTime, 1000);

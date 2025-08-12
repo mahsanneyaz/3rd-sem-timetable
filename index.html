@@ -10,7 +10,6 @@
 
 <body>
     <div class="app-container">
-        <!-- Header Section -->
         <header class="header">
             <div class="header-content">
                 <div class="university-info">
@@ -47,7 +46,7 @@
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
                     </button>
-                    <div class="current-time">
+                    <div class="current-time" id="dateTimeTrigger">
                         <div class="time-display" id="currentTime">3:00:00 PM</div>
                         <div class="date-display" id="currentDate">Sunday, Aug 10, 2025</div>
                     </div>
@@ -55,7 +54,8 @@
             </div>
         </header>
 
-        <!-- Main Timetable -->
+        <div class="custom-tooltip" id="customTooltip"></div>
+
         <main class="main-content">
             <div class="timetable-container">
                 <div class="timetable-header">
@@ -68,10 +68,8 @@
                 </div>
 
                 <div class="timetable-grid" id="timetableGrid">
-                    <!-- Grid will be populated by JavaScript -->
                 </div>
 
-                <!-- Legend -->
                 <div class="legend">
                     <h3>Legend</h3>
                     <div class="legend-items">
@@ -100,7 +98,6 @@
             </div>
         </main>
 
-        <!-- Subject Detail Modal -->
         <div class="modal hidden" id="subjectModal">
             <div class="modal-overlay"></div>
             <div class="modal-content">
@@ -127,7 +124,6 @@
             </div>
         </div>
 
-        <!-- Student List Modal -->
         <div class="modal hidden" id="studentModal">
             <div class="modal-overlay"></div>
             <div class="modal-content">
@@ -141,13 +137,11 @@
                         <button class="tab-btn" data-section="A">Section A</button>
                     </div>
                     <div class="student-list-container" id="studentListContainer">
-                        <!-- Student list will be populated by JS -->
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Faculty List Modal -->
         <div class="modal hidden" id="facultyModal">
             <div class="modal-overlay"></div>
             <div class="modal-content">
@@ -156,12 +150,10 @@
                     <button class="modal-close">&times;</button>
                 </div>
                 <div class="modal-body" id="facultyListContainer">
-                    <!-- Faculty list will be populated by JS -->
                 </div>
             </div>
         </div>
 
-        <!-- About Me Modal -->
         <div class="modal hidden" id="aboutMeModal">
             <div class="modal-overlay"></div>
             <div class="modal-content">
@@ -171,14 +163,33 @@
                 </div>
                 <div class="modal-body">
                     <div class="subject-details" id="aboutMeContainer">
-                        <!-- "About Me" details will be populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal hidden" id="calendarModal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="monthYearHeader">Academic Calendar</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button id="prevMonthBtn">&lt;</button>
+                            <h4 id="calendarTitle"></h4>
+                            <button id="nextMonthBtn">&gt;</button>
+                        </div>
+                        <div class="calendar-grid" id="calendarGrid">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
 
-        <!-- Footer -->
         <footer class="footer">
             <div class="footer-content">
                 <div class="info">
