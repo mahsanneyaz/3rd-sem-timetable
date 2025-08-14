@@ -1,28 +1,26 @@
 # BCA 3B Timetable
 
-Web app to display and manage the SRM University Delhi-NCR BCA 3B timetable, built with semantic HTML, modern CSS, and vanilla JavaScript. Optimized for performance, accessibility, and a pleasant user experience across devices.
+**Web app to display and manage the SRM University Delhi-NCR BCA 3B timetable. Built with HTML, modern CSS, and vanilla JavaScript. Designed for performance, accessibility, and a pleasant experience on all devices.**
 
-Live demo: https://mahsanneyaz.github.io/3rd-sem-timetable/
+**[Live Demo](https://mahsanneyaz.github.io/3rd-sem-timetable/)**
 
 ***
 
 ## ✨ Features
 
-- Up-to-date design system
-    - Dark and light themes with system preference detection
-    - Teal and charcoal color scheme for sturdy readability
-- Responsive grid layout with fluid, reduced-motion-friendly animations
-- Intelligent time management
-    - Live clock
-    - Emphasizes today’s schedule and the current class slot
-- Interactive UI
-    - Click any subject to see details (faculty, code, department)
+- **Modern Design System**
+    - Dark/light themes (system preference detection)
+    - Teal and charcoal color scheme for optimal readability
+- Responsive grid layout with reduced-motion-friendly animations
+- **Intelligent Time Management**
+    - Real-time clock display
+    - Today’s schedule and current class period highlighted
+- **Interactive UI**
+    - Click any subject for details (faculty, code, department)
     - Student directory: 79 students with registration numbers
-    - Faculty directory for coordinators and subjects
-- Personal profile section for Mohammad Ahsan Neyaz
-- Technical superiority
-    - No dependencies: plain HTML, CSS, and JavaScript
-    - Mobile friendly, offline-friendly
+    - Faculty directory for coordinators and teaching staff
+    - Personal profile section (Mohammad Ahsan Neyaz)
+- Technical excellence: no dependencies, mobile and offline friendly
 
 ***
 
@@ -30,18 +28,38 @@ Live demo: https://mahsanneyaz.github.io/3rd-sem-timetable/
 
 | Time | Monday | Tuesday | Wednesday | Thursday | Friday |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| 9:30–10:30 | Sports, Yoga and Fitness | Data Communication \& Networks | Operating Systems Concept | Operating Systems Concept | Database Management Systems |
-| 10:30–11:30 | Sports, Yoga and Fitness | Electoral Literacy in India | Database Management Systems | Env. Studies | SPSS |
-| 11:30–12:30 | Data Communication \& Networks | Operating Systems Concept | Env. Studies | Data Communication \& Networks | SPSS |
-| 12:30–1:30 | German/French | Env. Studies | Sports, Yoga and Fitness | Database Management Systems | German/French |
+| 9:30–10:30 | Sports, Yoga \& Fitness | Data Comm. \& Networks | Operating Systems Concept | Operating Systems Concept | Database Management Sys. |
+| 10:30–11:30 | Sports, Yoga \& Fitness | Electoral Literacy in India | Database Management Sys. | Environmental Studies | SPSS |
+| 11:30–12:30 | Data Comm. \& Networks | Operating Systems Concept | Environmental Studies | Data Comm. \& Networks | SPSS |
+| 12:30–1:30 | German/French | Environmental Studies | Sports, Yoga \& Fitness | Database Management Sys. | German/French |
 | 1:30–2:30 | LUNCH | LUNCH | LUNCH | LUNCH | LUNCH |
-| 2:30–3:30 | Electoral Literacy in India | FREE | Data Communication and Networks | Electoral Literacy in India | DBMS LAB |
-| 3:30–4:30 | Env. Studies | Presentation Skills | Presentation Skills | FREE | DBMS LAB |
+| 2:30–3:30 | Electoral Literacy | FREE | Data Comm. \& Networks | Electoral Literacy in India | DBMS LAB |
+| 3:30–4:30 | Environmental Studies | Presentation Skills | Presentation Skills | FREE | DBMS LAB |
 
-Notes
+*Note: Current day and period are dynamically emphasized in the app UI.*
 
-- Current day is emphasized.
-- Current time slot pulses while active.
+***
+
+## 📅 Academic Calendar
+
+The app features an **integrated academic calendar** showing holidays, exam dates, and assignment deadlines:
+
+- *Holidays (2025–26):*
+    - Aug 9: Raksha Bandhan
+    - Aug 15: Independence Day
+    - Sep 5: Milad-un-nabi
+    - Sep 22: Maharaja Agrasen Jayanti
+    - Sep 23: Haryana War Heroes Martyrdom Day
+    - Oct 2: Gandhi Jayanti/Dussehra
+    - Oct 7: Maharishi Valmiki/Ajmidh Jayanti
+    - Oct 20–21: Diwali
+    - Nov 5: Guru Nanak Dev Jayanti
+    - Dec 3: Preparatory Leave
+    - Dec 25: Christmas
+    - Jan 1, 2026: Semester Break
+- *Exam and assignment events*: Displayed with color markers and tooltips in calendar view.
+
+> Access the calendar via the **Academic Calendar** tab in the web UI for full event details and legend.
 
 ***
 
@@ -50,86 +68,86 @@ Notes
 | Subject | Code | Faculty | Department |
 | :-- | :-- | :-- | :-- |
 | Database Management Systems | 24BCA301 | Dr. Kaleem | CSE |
-| Data Communication and Networks | 24BCA302 | Dr. Syed Mohtashim Mian | CSE |
+| Data Communication \& Networks | 24BCA302 | Dr. Syed Mohtashim Mian | CSE |
 | Operating Systems Concept | 24BCA303 | Mr. Rachit | CSE |
 | DBMS Laboratory | 24BCA304 | Dr. Kaleem | CSE |
-| Environmental Studies | 23ESUG201 | NF | ENV. SCIENCE |
-| Electoral Literacy in India | 24MDCxx | NF | POL.SC. |
-| German-I/French-I | 23AECxxx | Mr. Sudip Das / Mr. Ashish Verma | LANGUAGE |
-| Sports, Yoga and Fitness | 23VACxxx | Ms. Komal | SPORTS |
+| Environmental Studies | 23ESUG201 | NF | Env. Science |
+| Electoral Literacy in India | 24MDCxx | Abhishank | Pol. Sc. |
+| German-I/French-I | 23AECxxx | Mr. Sudip Das / Mr. Ashish Verma | Language |
+| Sports, Yoga and Fitness | 23VACxxx | Ms. Komal | Sports |
 | Presentation Skills | 23SS353 | NF-A | PD |
 | Statistical Skills using SPSS | 23SS303 | Dr. Rashi Malik | MBA |
 
 
 ***
 
+## 📝 Syllabus
+
+Detailed syllabi are available in-app (see *Syllabus* tab/modal) for all core subjects.
+
+> *Full text and unit-wise breakdown for all subjects are visible in the Syllabus section of the app or in app.js for offline access.*
+
+***
+
 ## 🎓 Class and Student Info
 
-- Program: Bachelor of Computer Applications (B.C.A.)
-- Semester: III (3rd Semester)
-- Section: B
-- Academic Session: 2025 (ODD)
-- Class In-Charge: Ms. Arul
-- Program Coordinator: Dr. Neeraj Dahiya
-- Room: A-407
-- Total Students: 79 (Section B)
-- Registration Range: 42224210076–42224210154
+- **Program:** Bachelor of Computer Applications (B.C.A.)
+- **Semester:** III (3rd Semester)
+- **Section:** B
+- **Academic Session:** 2025 (ODD)
+- **Class In-Charge:** Ms. Arul
+- **Program Coordinator:** Dr. Neeraj Dahiya
+- **Room:** A-407
+- **Total Students:** 79 (Section B)
+- **Registration Numbers:** 42224210076–42224210154
+- *Full student list viewable in the Student Directory section.*
 
 ***
 
 ## 🧭 Usage Guide
 
-Navigation:
-
-- Click any subject → view detailed information
-- “Total Students: 79” → view full list
-- “Class In-Charge: Ms. Arul” → staff details
-- Any student name → open personal details (where applicable)
-- Toggle theme at the top-right (dark/light)
-
-Current class detection:
-
-- Today’s row is highlighted
-- Current time slot animates
-- Active subject is highlighted
+- **Navigation:**
+    - Click any subject slot for full details
+    - Access student or faculty lists from top or modal links
+    - View syllabus and academic calendar via dedicated tabs
+    - Toggle dark/light theme at top-right
+- **Today’s class and time:** Highlighted in timetable grid and calendar
+- **Legend:** Color codes for class, lab, lunch, free period, holiday, assignment, exam
 
 ***
 
 ## ⚡ Quick Start
 
-Option 1: Direct use
+**Direct Use**
 
 1. Download this repository
-2. Open index.html in any modern web browser
-3. Enjoy the interactive timetable
+2. Open `index.html` in any modern browser
 
-Option 2: GitHub Pages
+**GitHub Pages**
 
-- Open the live demo:
-- https://mahsanneyaz.github.io/3rd-sem-timetable/
+- Visit the [live demo](https://mahsanneyaz.github.io/3rd-sem-timetable/)
 
 ***
 
 ## 🛠️ Tech Stack
 
 - Semantic HTML5
-- CSS3 with custom properties, Grid, and Flexbox
+- CSS3 (custom properties, grid, flexbox)
 - Vanilla JavaScript
-- Design system with a professional, 800+ line CSS file
-- color-scheme support with system preference detection
-- Responsive breakpoints for all device sizes
-- No dependencies and offline-friendly
+- 800+ lines design system (see `style.css`)
+- No dependencies; fully offline-capable
+- Accessibility-first design
 
 ***
 
 ## 📁 Project Structure
 
-```
+```plaintext
 3rd-sem-timetable/
 ├── index.html          # Main HTML structure
 ├── style.css           # Styling & design system
-├── app.js              # App data & logic
-└── README.md           # Docs
+├── app.js              # App data & logic (timetable, calendar, syllabus)
+└── README.md           # Documentation
 ```
 
 
@@ -137,20 +155,21 @@ Option 2: GitHub Pages
 
 ## ♿ Accessibility \& Performance
 
-- Reduced-motion-friendly animations
-- High-contrast, legible color choices
-- Lightweight, dependency-free package
+- Reduced-motion animations
+- High-contrast theme options
+- Fully responsive and mobile optimized
+- ARIA labels and keyboard navigation support
 
 ***
 
 ## 🗺️ Roadmap
 
-- Integration of exam schedule
+- Exam schedule integration
 - Assignment tracker module
 - Attendance calculator
 - Notes and reminders system
-- Export to calendar
-- sync with storage
+- Export to calendar (.ics, Google)
+- Sync with cloud storage
 
 ***
 
@@ -166,29 +185,37 @@ Option 2: GitHub Pages
 
 ## 🤝 Contributing
 
-Contributions, issues, and feature requests are welcome!
+All contributions, issues, and feature requests are welcome!
 
-- Fork the repo
+- Fork the repository
 - Create a feature branch
-- Commit changes with clear messages
-- Open a pull request with context and screenshots (for UI)
+- Commit with clear messages
+- Open a pull request (screenshots encouraged for UI)
 
-Good first issues:
+**Suggestions for first-time contributors:**
 
-- Implement unit data validation for timetable entries
-- Fix accessibility labels
-- Enhance mobile layout for extremely small screens
-- Add tests for time-slot detection logic
+- Data validation for timetable entries
+- Improving accessibility labels/UI
+- Enhance mobile layout for small screens
+- Add tests for slot detection
 
 ***
 
 ## 🔑 License
 
-This is an open source project.
+Open source project.
 
 ***
 
 ## ⭐ Acknowledgments
 
 Created with ❤️ for BCA 3B students at SRM University Delhi-NCR.
-If this project is useful, please star the repository and share it with classmates.
+If you found it useful, star the repository \& share with classmates.
+
+***
+
+*For any issues, fell free to contact.*
+
+<div style="text-align: center">⁂</div>
+
+[^1]: https://mahsanneyaz.github.io/3rd-sem-timetable/
