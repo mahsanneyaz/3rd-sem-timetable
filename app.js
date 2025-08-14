@@ -118,6 +118,66 @@ const timetableData = {
   "days": ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY"]
 };
 
+const syllabusData = {
+  "Database Management Systems": `
+    <h4>Unit-1: Introduction To Data And Information</h4>
+    <p>Basic Concepts - Data Information, difference between data and information, Records and files,Traditional file - based Systems- File Based Approach- limitation of files Based Approach, Database Approach- characteristics of Database Approach, Database Management Systems (DBMS), Components of DBMS Environment, DBMS Functions and Components, Advantage and Disadvantage of DBMS.</p>
+    <h4>Unit-2: Architecture</h4>
+    <p>Database System Architecture - Three levels of Architecture, External, Conceptual and Internal Levels, Schemas, Mapping and Instance, Data Independence - Logical and Physical Data Independence. Classification of Database Management System, Centralization and client-Server Architecture to DBMS. Data Models: Records-based Data Models, Object-based data Models, object-based Data Models, physical Data Models and Conceptual Modeling.</p>
+    <h4>Unit-3: E-R Modelling</h4>
+    <p>Entry-Relationships Models -Entity Types, Entity Sets, Attribute Relationship Types, Relationship Instances and E-R Diagram, Basic Concepts of Hierarchal and network Data Models, difference between relational, hierarchical and network model, Relational Data Model: - Brief History, Relational Model Terminology-Relational Data Structure, Database Relations, Properties of Relations, Keys, Domains, and Integrity Constrains over Relations, Base table and views.</p>
+    <h4>Unit-4: Normalization</h4>
+    <p>Introduction to Schema Refinement -  Problems caused by redundancy, Decompositions - Problems related to decomposition, Functional Dependencies - Reasoning about FDS,Normal Forms - First, Second,Third Normal forms.</p>
+    <h4>unit-5: Transaction & Recovery</h4>
+    <p>Transaction management ACID Properties, Transaction states, Concurrency control: Concurrency Control-Overview, Concurrency control problems, Locks, Locking Protocols, and Deadlocks.</p>
+  `,
+  "DBMS LAB": `
+    <h4>List of Experiments</h4>
+    <p>(A Student is suppose to complete/perform minimum 9 experiment)</p>
+    <h5>EMPLOYEE Schema</h5>
+    <table class="syllabus-table">
+      <thead><tr><th>FIELD</th><th>TYPE</th><th>NULL</th><th>KEY</th><th>DEFAULT</th></tr></thead>
+      <tbody>
+        <tr><td>Eno.</td><td>Char(3)</td><td>NO</td><td>PRI</td><td>NIL</td></tr>
+        <tr><td>Ename</td><td>Varchar(50)</td><td>NO</td><td></td><td>NIL</td></tr>
+        <tr><td>job_type</td><td>Varchar(50)</td><td>NO</td><td></td><td>NIL</td></tr>
+        <tr><td>Manager</td><td>Char(3)</td><td>YES</td><td>FK</td><td>NIL</td></tr>
+        <tr><td>Hire_data</td><td>Date</td><td>NO</td><td></td><td>NIL</td></tr>
+        <tr><td>Dno.</td><td>Integer</td><td>YES</td><td>FK</td><td>NIL</td></tr>
+        <tr><td>Commission</td><td>Decimal(10,2)</td><td>YES</td><td></td><td>NIL</td></tr>
+        <tr><td>Salary</td><td>Decimal(7,2)</td><td>NO</td><td></td><td>NIL</td></tr>
+      </tbody>
+    </table>
+    <h5>DEPARTMENT Scheme</h5>
+    <table class="syllabus-table">
+      <thead><tr><th>FIELD</th><th>TYPE</th><th>NULL</th><th>KEY</th><th>DEFAULT</th></tr></thead>
+      <tbody>
+        <tr><td>Dno.</td><td>Integer</td><td>NO</td><td>PRI</td><td>NULL</td></tr>
+        <tr><td>Dname</td><td>Varchar(50)</td><td>YES</td><td></td><td>NULL</td></tr>
+        <tr><td>Location</td><td>Varchar(50)</td><td>YES</td><td>NEW DELHI</td></tr>
+      </tbody>
+    </table>
+    <ol>
+      <li>Query to display Employee Name, job, Hire Date,Employee Number; for each employee with the Employee Number appearing first.</li>
+      <li>Query to display unique job from the Employee Table.</li>
+      <li>Query to display the Employee Name concatenated by a job separated by a comma.</li>
+      <li>Query to display all the data from the Employee Table. Separate each Column by a comma and name the said column as THE_OUTPUT.</li>
+    </ol>
+  `,
+  "Data Communication & Networks": `
+    <h4>Unit-1: INTRODUCTION</h4>
+    <p>Internet: A brief History; TCP/IP Model; OSI Model; Types of Networks : Local Area Networks, Metropolitan Area Networks, Wide Area Network; Topologies: Bus, Star, Ring, Hybrid, Tree, Complete, Irregular - Topology; Guided and unguided transmission media.</p>
+    <h4>Unit-2: DATA LINK LAYERS</h4>
+    <p>Data link Layer design issues: Framing, Error Detection & Correction: Checksum, CRC, Hamming codes; Elementary Data link Protocols- Sliding window Protocols; Media access control  Random Access: Aloha, CSMA; Controlled Access: Token Passing, Polling, Reservation; Channelization; Ethernet Standard;</p>
+    <h4>Unit-3: NETWORK LAYERS PROTOCOLS</h4>
+    <p>IPV4 Addressing  classful and classless, Network Address Translation, IPV4 Packet Format, Circuit Switching, Packet Switching, ARP, RARP, DHCP, ICMP and IGMP.</p>
+    <h4>Unit-4: NETWORK ROUTING</h4>
+    <p>LAN interconnecting devices: Hubs, Switches, Bridges, Routers, Gateways; Routing and Forwarding, Routing Table, Intra- and inter-domain routing, Distance vector routing, DVR Instability problem and solutions, RIP, Link State Routing, OSPF; Virtual Private Networks;</p>
+    <h4>Unit-5: TRANSPORT & APPLICATION LAYER</h4>
+    <p>Transmission Control Protocol; 3-way handshaking in TCP; User Datagram Protocol; Congestion control mechanisms; Application Layer: Email  SMTP, POP, IMAP; FTP, NNTP, HTTP, DNS, WWW, Firewall.</p>
+  `
+};
+
 // ===================================================================================
 // ACADEMIC EVENTS - THIS IS WHERE TO ADD EXAMS, ASSIGNMENTS, AND HOLIDAYS
 // ===================================================================================
@@ -299,7 +359,40 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     } else if (modalId === 'calendarModal') {
       renderCalendar();
+    } else if (modalId === 'syllabusModal') {
+      renderSyllabus();
     }
+  }
+
+  function renderSyllabus() {
+    const modalBody = document.getElementById('syllabusModalBody');
+    const subjects = Object.keys(syllabusData);
+
+    let tabsHTML = '<div class="modal-tabs">';
+    subjects.forEach((subject, index) => {
+      tabsHTML += `<button class="tab-btn ${index === 0 ? 'active' : ''}" data-subject="${subject}">${subject}</button>`;
+    });
+    tabsHTML += '</div>';
+
+    let contentHTML = '<div class="syllabus-content-container">';
+    subjects.forEach((subject, index) => {
+      contentHTML += `<div class="syllabus-content ${index === 0 ? 'active' : ''}" data-subject-content="${subject}">${syllabusData[subject]}</div>`;
+    });
+    contentHTML += '</div>';
+
+    modalBody.innerHTML = tabsHTML + contentHTML;
+
+    modalBody.querySelector('.modal-tabs').addEventListener('click', function (e) {
+      if (e.target && e.target.matches('.tab-btn')) {
+        const subject = e.target.getAttribute('data-subject');
+
+        modalBody.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+
+        modalBody.querySelectorAll('.syllabus-content').forEach(content => content.classList.remove('active'));
+        modalBody.querySelector(`.syllabus-content[data-subject-content="${subject}"]`).classList.add('active');
+      }
+    });
   }
 
   function renderStudentList(section) {
@@ -525,6 +618,10 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('viewFacultyLink').addEventListener('click', function (e) {
       e.preventDefault();
       showModal('facultyModal');
+    });
+    document.getElementById('syllabusLink').addEventListener('click', function (e) {
+      e.preventDefault();
+      showModal('syllabusModal');
     });
   }
 
