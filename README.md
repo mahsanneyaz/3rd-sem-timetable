@@ -1,4 +1,4 @@
-# BCA 3B Interactive Timetable
+# BCA 3B Timetable
 
 Web app to display and manage the SRM University Delhi-NCR BCA 3B timetable, built with semantic HTML, modern CSS, and vanilla JavaScript. Optimized for performance, accessibility, and a pleasant user experience across devices.
 
