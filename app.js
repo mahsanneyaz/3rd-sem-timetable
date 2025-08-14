@@ -128,7 +128,7 @@ const syllabusData = {
     <p>Entry-Relationships Models -Entity Types, Entity Sets, Attribute Relationship Types, Relationship Instances and E-R Diagram, Basic Concepts of Hierarchal and network Data Models, difference between relational, hierarchical and network model, Relational Data Model: - Brief History, Relational Model Terminology-Relational Data Structure, Database Relations, Properties of Relations, Keys, Domains, and Integrity Constrains over Relations, Base table and views.</p>
     <h4>Unit-4: Normalization</h4>
     <p>Introduction to Schema Refinement -  Problems caused by redundancy, Decompositions - Problems related to decomposition, Functional Dependencies - Reasoning about FDS,Normal Forms - First, Second,Third Normal forms.</p>
-    <h4>unit-5: Transaction & Recovery</h4>
+    <h4>Unit-5: Transaction & Recovery</h4>
     <p>Transaction management ACID Properties, Transaction states, Concurrency control: Concurrency Control-Overview, Concurrency control problems, Locks, Locking Protocols, and Deadlocks.</p>
   `,
   "DBMS LAB": `
@@ -154,7 +154,7 @@ const syllabusData = {
       <tbody>
         <tr><td>Dno.</td><td>Integer</td><td>NO</td><td>PRI</td><td>NULL</td></tr>
         <tr><td>Dname</td><td>Varchar(50)</td><td>YES</td><td></td><td>NULL</td></tr>
-        <tr><td>Location</td><td>Varchar(50)</td><td>YES</td><td>NEW DELHI</td></tr>
+        <tr><td>Location</td><td>Varchar(50)</td><td>YES</td><td></td><td>NEW DELHI</td></tr>
       </tbody>
     </table>
     <ol>
