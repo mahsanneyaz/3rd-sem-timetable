@@ -134,7 +134,7 @@ Detailed syllabi are available in-app (see *Syllabus* tab/modal) for all core su
 - Semantic HTML5
 - CSS3 (custom properties, grid, flexbox)
 - Vanilla JavaScript
-- 800+ lines design system (see `style.css`)
+- 1500+ lines design system (see `style.css`)
 - No dependencies; fully offline-capable
 - Accessibility-first design
 
