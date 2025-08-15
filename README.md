@@ -216,6 +216,5 @@ If you found it useful, star the repository \& share with classmates.
 
 *For any issues, fell free to contact.*
 
-<div style="text-align: center">⁂</div>
 
 [^1]: https://mahsanneyaz.github.io/3rd-sem-timetable/
