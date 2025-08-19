@@ -107,7 +107,7 @@ const timetableData = {
     "Data Communication & Networks": { "code": "24BCA302", "name": "Data Communication and Networks (DCN)", "faculty": "Dr. Syed Mohtashim Mian", "department": "CSE" },
     "Operating Systems Concept": { "code": "24BCA303", "name": "Operating Systems Concept (OS)", "faculty": "Mr. Rachit", "department": "CSE" },
     "DBMS LAB": { "code": "24BCA304", "name": "Database Management Systems Lab (DBMS LAB)", "faculty": "Dr. Kaleem", "department": "CSE" },
-    "Env. Studies": { "code": "23ESUG201", "name": "Environmental Studies (Env. Studies)", "faculty": "NF", "department": "ENV. SCIENCE" },
+    "Env. Studies": { "code": "23ESUG201", "name": "Environmental Studies (Env. Studies)", "faculty": "Uqab Ali Baba", "department": "ENV. SCIENCE" },
     "Electoral Literacy in India": { "code": "24MDCxx", "name": "Electoral Literacy in India (ELI)", "faculty": "Abhishank", "department": "POL.SC." },
     "German-I/French-I": { "code": "23AECxxx", "name": "German-I/French-I", "faculty": "Mr.Sudip Das/Mr.Ashish Verma", "department": "LANGUAGE" },
     "Sports,Yoga and Fitness": { "code": "23VACxxx", "name": "Sports,Yoga and Fitness (SYF)", "faculty": "Ms.Komal", "department": "SPORTS" },
@@ -185,6 +185,8 @@ const academicEvents = {
   // --- HOLIDAYS (UPDATED LIST) ---
   "2025-08-09": [{ type: "holiday", remarks: "Raksha bandhan" }],
   "2025-08-15": [{ type: "holiday", remarks: "Independence Day" }],
+  "2025-08-20": [{ type: "holiday", remarks: "Orientation" }],
+  "2025-08-21": [{ type: "holiday", remarks: "Induction" }],
   "2025-09-05": [{ type: "holiday", remarks: "Milad-un-nabi" }],
   "2025-09-22": [{ type: "holiday", remarks: "Maharaja Agrasen Jayanti" }],
   "2025-09-23": [{ type: "holiday", remarks: "Haryana War heroes Martyrdom Day" }],
