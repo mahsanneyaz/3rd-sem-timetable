@@ -712,12 +712,32 @@ select.form-control {
   transition: background-color var(--duration-normal), color var(--duration-normal);
 }
 
-/* Header Styles */
+/* ========================================================= */
+/* NEW HEADER REDESIGN                                       */
+/* ========================================================= */
+
+/* Define RGB versions of surface colors for opacity */
+:root {
+  --color-surface-rgb-light: 255, 255, 253;
+  --color-surface-rgb-dark: 38, 40, 40;
+  --color-surface-with-opacity: rgba(var(--color-surface-rgb-light), 0.85);
+}
+
+[data-color-scheme="dark"] {
+  --color-surface-with-opacity: rgba(var(--color-surface-rgb-dark), 0.85);
+}
+
+/* --- 1. Main Header Structure --- */
 .header {
-  background-color: var(--color-surface);
+  position: sticky;
+  /* Makes the header 'stick' to the top */
+  top: 0;
+  z-index: 1000;
+  background-color: var(--color-surface-with-opacity);
+  backdrop-filter: blur(8px);
+  /* Modern glass effect */
   border-bottom: 1px solid var(--color-border);
-  padding: var(--space-20) 0;
-  box-shadow: var(--shadow-sm);
+  padding: var(--space-12) 0;
   transition: background-color var(--duration-normal), border-color var(--duration-normal);
 }
 
@@ -728,35 +748,27 @@ select.form-control {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-16);
+  gap: var(--space-20);
 }
 
+/* --- 2. University Info & Branding (Left Side) --- */
 .university-info {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 1;
+  /* Allows this section to shrink */
+  min-width: 0;
+  /* Required for text to shrink properly */
 }
 
 .university-name {
   font-size: var(--font-size-2xl);
+  /* Larger, bolder font */
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-8);
   color: var(--color-primary);
-}
-
-.university-info {
-  display: flex;
-  align-items: center;
-  /* This vertically aligns the logo and the text block */
-  gap: 16px;
-  /* This adds a nice space between the logo and the text */
-  flex: 1;
-}
-
-.university-text-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  /* Aligns the text to the left */
+  margin: 0;
+  line-height: 1.2;
 }
 
 .program-details {
@@ -766,32 +778,66 @@ select.form-control {
   gap: var(--space-8);
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
+  /* Lighter, secondary color */
+  margin-top: var(--space-4);
 }
 
-.separator {
-  color: var(--color-text-secondary);
-}
-
+/* --- 3. Header Controls (Right Side) --- */
 .header-controls {
   display: flex;
   align-items: center;
   gap: var(--space-20);
+  /* Spacing between controls */
+  flex-shrink: 0;
+  /* Prevent controls from shrinking */
 }
 
 .theme-toggle {
-  background: transparent;
-  border: none;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-4);
   color: var(--color-text);
+  border-radius: var(--radius-sm);
+}
+
+.theme-toggle:hover {
+  background-color: var(--color-secondary);
 }
 
 .theme-toggle svg {
   width: 24px;
   height: 24px;
+}
+
+.current-time {
+  text-align: right;
+  cursor: pointer;
+  /* Indicates it's clickable */
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--duration-fast);
+}
+
+.current-time:hover {
+  background-color: var(--color-secondary);
+}
+
+.time-display {
+  font-size: var(--font-size-xl);
+  /* Larger time */
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+}
+
+.date-display {
+  font-size: var(--font-size-sm);
+  /* Smaller date */
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2);
 }
 
 [data-color-scheme="dark"] .theme-toggle .sun-icon {
@@ -802,30 +848,54 @@ select.form-control {
   display: none;
 }
 
-
-.current-time {
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.time-display {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-primary);
-}
-
 .time-seconds {
   font-size: 0.7em;
   font-weight: var(--font-weight-normal);
   color: var(--color-text-secondary);
 }
 
-.date-display {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-  margin-top: var(--space-4);
+/* --- 4. Mobile Optimization (for screens < 768px) --- */
+@media (max-width: 768px) {
+  .header {
+    padding: var(--space-8) 0;
+  }
+
+  .header-content {
+    gap: var(--space-12);
+  }
+
+  .university-name {
+    font-size: var(--font-size-lg);
+    /* Reduce font size on mobile */
+    white-space: nowrap;
+    /* Keep name on one line */
+    overflow: hidden;
+    /* Hide the overflow */
+    text-overflow: ellipsis;
+    /* Add "..." if name is too long */
+    max-width: 150px;
+    /* Adjust as needed */
+  }
+
+  .program-details {
+    display: none;
+    /* Hide program details on mobile for a clean look */
+  }
+
+  .header-controls {
+    gap: var(--space-12);
+    /* Reduce gap between controls */
+  }
+
+  .time-display {
+    font-size: var(--font-size-base);
+    /* Smaller time on mobile */
+  }
+
+  .date-display {
+    display: none;
+    /* Hide date on mobile to save space */
+  }
 }
 
 /* Main Content */
@@ -859,6 +929,10 @@ select.form-control {
   align-items: center;
   gap: var(--space-8);
   font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.separator {
   color: var(--color-text-secondary);
 }
 
@@ -1233,14 +1307,12 @@ select.form-control {
 
 .footer-link {
   cursor: pointer;
-  color: inherit;
-  /* Inherit color from parent */
+  color: var(--color-text-secondary);
 }
 
 .footer-link:hover {
   text-decoration: underline;
-  color: inherit;
-  /* Do not change color on hover */
+  color: var(--color-text);
 }
 
 /* Calendar Styles */
@@ -1533,27 +1605,6 @@ select.form-control {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .header-controls {
-    flex-direction: column-reverse;
-  }
-
-  .current-time {
-    align-items: center;
-  }
-
-  .university-name {
-    font-size: var(--font-size-xl);
-  }
-
-  .program-details {
-    justify-content: center;
-  }
-
   .timetable-header {
     flex-direction: column;
     text-align: center;
@@ -1612,62 +1663,5 @@ select.form-control {
     min-height: 36px;
     padding: var(--space-2);
     font-size: 10px;
-  }
-}
-
-
-/* =================================================== */
-/* REFINED MOBILE HEADER FIX (REPLACE PREVIOUS CODE)   */
-/* =================================================== */
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-12);
-  }
-
-  .university-info {
-    text-align: left;
-    flex-shrink: 1; /* Allows this section to shrink */
-    min-width: 0;   /* Required for text to shrink properly */
-  }
-
-  .university-text-container {
-    /* This is the key change to make the header horizontal */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: baseline; /* Aligns the large title with the smaller text */
-    column-gap: var(--space-8);
-    row-gap: var(--space-2);
-  }
-
-  .university-name {
-    font-size: var(--font-size-lg); /* Slightly smaller title */
-    margin: 0;
-  }
-
-  .program-details {
-    justify-content: flex-start;
-  }
-
-  .header-controls {
-    flex-direction: row;
-    align-items: center;
-    flex-shrink: 0; /* Prevents controls from shrinking */
-    gap: var(--space-12);
-  }
-  
-  .current-time {
-    align-items: center;
-  }
-
-  .time-display {
-    font-size: var(--font-size-base); /* Smaller time font */
-  }
-
-  .date-display {
-    display: none; /* Hides the full date to save space */
   }
 }
