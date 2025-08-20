@@ -666,6 +666,12 @@ document.addEventListener('DOMContentLoaded', function () {
   bindModalEvents();
   bindFooterLinks();
   bindCalendarEvents();
+
+  // EVENT LISTENER FOR NEW CALENDAR ICON ADDED HERE
+  document.getElementById('calendarToggle').addEventListener('click', function () {
+    showModal('calendarModal');
+  });
+
   updateLiveHighlighting();
 
   setInterval(updateDateTime, 1000);

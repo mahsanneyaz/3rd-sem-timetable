@@ -1,69 +1,94 @@
 # BCA 3B Timetable
 
-**Web app to display and manage the SRM University Delhi-NCR BCA 3B timetable. Built with HTML, modern CSS, and vanilla JavaScript. Designed for performance, accessibility, and a pleasant experience on all devices.**
-
-**[Live Demo](https://mahsanneyaz.github.io/3rd-sem-timetable/)**
+**Interactive web application for managing and viewing the SRM University Delhi-NCR BCA 3B weekly timetable. Built with HTML, custom CSS design system, and vanilla JavaScript—optimized for all devices.**
 
 ***
 
 ## ✨ Features
 
 - **Modern Design System**
-    - Dark/light themes (system preference detection)
-    - Teal and charcoal color scheme for optimal readability
-- Responsive grid layout with reduced-motion-friendly animations
-- **Intelligent Time Management**
-    - Real-time clock display
-    - Today’s schedule and current class period highlighted
-- **Interactive UI**
-    - Click any subject for details (faculty, code, department)
-    - Student directory: 79 students with registration numbers
-    - Faculty directory for coordinators and teaching staff
-    - Personal profile section (Mohammad Ahsan Neyaz)
-- Technical excellence: no dependencies, mobile and offline friendly
+    - Supports both dark and light mode (manual toggle and system detection)
+    - Accessible color palette (Teal, Charcoal, Cream, and high-contrast backgrounds)
+- **Responsive Layout**
+    - Mobile-first grid; dynamic resizing
+    - Light-weight, reduced motion for accessibility
+- **Live Time Integration**
+    - Real-time digital clock display
+    - Highlights today and current class period automatically
+- **Interactive Timetable**
+    - Click on any subject cell for detailed popup (subject/faculty/code/timing)
+    - Accessible via keyboard and mouse
+- **Data-Rich Directories**
+    - Student directory for both Section A and B (sortable, registration numbers listed)
+    - Faculty directory (names, departments, and all assigned subjects)
+- **Syllabus Section**
+    - Detailed syllabus content for each course, lab, and theory (visible in-app and in code)
+- **Academic Calendar View**
+    - Color-coded markers for holidays, exams, assignments, and major university events
+    - Each event shows tooltips with details, integrated with calendar grid
+- **Usability/Technical Excellence**
+    - No external dependencies
+    - Offline-friendly: all data is inside the app.js
+    - Fast load, no framework overhead
 
 ***
 
-## 🗓️ Timetable
+## 🧭 Usage Instructions
+
+- **Navigation**
+    - Tap/click any timetable slot for detailed info
+    - Use modals to view student and faculty lists, "About Me", or the syllabus
+    - Calendar tab displays all academic events and holidays with colored badges
+    - Header shows class, section, and total student count
+    - Theme toggle at top-right corner for dark/light mode
+- **Accessibility**
+    - All navigation and interactive elements are keyboard friendly
+    - High-contrast and scalable design for visually impaired users
+
+***
+
+## 🗓️ Weekly Timetable
 
 | Time | Monday | Tuesday | Wednesday | Thursday | Friday |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| 9:30–10:30 | Sports, Yoga \& Fitness | Data Comm. \& Networks | Operating Systems Concept | Operating Systems Concept | Database Management Sys. |
-| 10:30–11:30 | Sports, Yoga \& Fitness | Electoral Literacy in India | Database Management Sys. | Environmental Studies | SPSS |
-| 11:30–12:30 | Data Comm. \& Networks | Operating Systems Concept | Environmental Studies | Data Comm. \& Networks | SPSS |
-| 12:30–1:30 | German/French | Environmental Studies | Sports, Yoga \& Fitness | Database Management Sys. | German/French |
+| 9:30–10:30 | Sports, Yoga \& Fitness | Electoral Literacy | Operating Systems Concept | Operating Systems Concept | Database Management Sys. |
+| 10:30–11:30 | Sports, Yoga \& Fitness | FREE | Database Management Sys. | Env. Studies | SPSS |
+| 11:30–12:30 | Data Comm. \& Networks | Operating Systems Concept | Env. Studies | Data Comm. \& Networks | SPSS |
+| 12:30–1:30 | German/French | Env. Studies | Sports, Yoga \& Fitness | Database Management Sys. | German/French |
 | 1:30–2:30 | LUNCH | LUNCH | LUNCH | LUNCH | LUNCH |
-| 2:30–3:30 | Electoral Literacy | FREE | Data Comm. \& Networks | Electoral Literacy in India | DBMS LAB |
-| 3:30–4:30 | Environmental Studies | Presentation Skills | Presentation Skills | FREE | DBMS LAB |
+| 2:30–3:30 | Electoral Literacy | FREE | Data Comm. \& Networks | Electoral Literacy | DBMS LAB |
+| 3:30–4:30 | Env. Studies | Presentation Skills | Presentation Skills | FREE | DBMS LAB |
 
-*Note: Current day and period are dynamically emphasized in the app UI.*
-
-***
-
-## 📅 Academic Calendar
-
-The app features an **integrated academic calendar** showing holidays, exam dates, and assignment deadlines:
-
-- *Holidays (2025–26):*
-    - Aug 9: Raksha Bandhan
-    - Aug 15: Independence Day
-    - Sep 5: Milad-un-nabi
-    - Sep 22: Maharaja Agrasen Jayanti
-    - Sep 23: Haryana War Heroes Martyrdom Day
-    - Oct 2: Gandhi Jayanti/Dussehra
-    - Oct 7: Maharishi Valmiki/Ajmidh Jayanti
-    - Oct 20–21: Diwali
-    - Nov 5: Guru Nanak Dev Jayanti
-    - Dec 3: Preparatory Leave
-    - Dec 25: Christmas
-    - Jan 1, 2026: Semester Break
-- *Exam and assignment events*: Displayed with color markers and tooltips in calendar view.
-
-> Access the calendar via the **Academic Calendar** tab in the web UI for full event details and legend.
 
 ***
 
-## 📚 Subjects and Faculty
+## 📅 Academic Calendar (2025–26)
+
+**Major University Holidays**
+
+- Aug 9, 2025: Raksha Bandhan
+- Aug 15, 2025: Independence Day
+- Aug 20 \& 21: Orientation, Induction 
+- Sep 5: Milad-un-nabi
+- Sep 22: Maharaja Agrasen Jayanti
+- Sep 23: Haryana War Heroes Martyrdom Day
+- Oct 2: Gandhi Jayanti / Dussehra
+- Oct 7: Maharishi Valmiki / Maharaja Ajmidh Jayanti
+- Oct 20–21: Diwali
+- Nov 5: Guru Nanak Dev Jayanti
+- Dec 3: Preparatory Leave
+- Dec 25: Christmas
+- Jan 1, 2026: Semester Break
+
+**Events (sample):**
+
+- Exam and assignment schedules (displayed color-marked on calendar).
+
+> Open the “Academic Calendar” tab in the app for interactive display and legend.
+
+***
+
+## 📚 Subjects \& Faculty
 
 | Subject | Code | Faculty | Department |
 | :-- | :-- | :-- | :-- |
@@ -71,8 +96,8 @@ The app features an **integrated academic calendar** showing holidays, exam date
 | Data Communication \& Networks | 24BCA302 | Dr. Syed Mohtashim Mian | CSE |
 | Operating Systems Concept | 24BCA303 | Mr. Rachit | CSE |
 | DBMS Laboratory | 24BCA304 | Dr. Kaleem | CSE |
-| Environmental Studies | 23ESUG201 | NF | Env. Science |
-| Electoral Literacy in India | 24MDCxx | Abhishank | Pol. Sc. |
+| Environmental Studies | 23ESUG201 | Uqab Ali Baba | Env. Science |
+| Electoral Literacy in India | 24MDCxx | Abhishank | Political Science |
 | German-I/French-I | 23AECxxx | Mr. Sudip Das / Mr. Ashish Verma | Language |
 | Sports, Yoga and Fitness | 23VACxxx | Ms. Komal | Sports |
 | Presentation Skills | 23SS353 | NF-A | PD |
@@ -83,93 +108,63 @@ The app features an **integrated academic calendar** showing holidays, exam date
 
 ## 📝 Syllabus
 
-Detailed syllabi are available in-app (see *Syllabus* tab/modal) for all core subjects.
-
-> *Full text and unit-wise breakdown for all subjects are visible in the Syllabus section of the app or in app.js for offline access.*
-
-***
-
-## 🎓 Class and Student Info
-
-- **Program:** Bachelor of Computer Applications (B.C.A.)
-- **Semester:** III (3rd Semester)
-- **Section:** B
-- **Academic Session:** 2025 (ODD)
-- **Class In-Charge:** Ms. Arul
-- **Program Coordinator:** Dr. Neeraj Dahiya
-- **Room:** A-407
-- **Total Students:** 79 (Section B)
-- **Registration Numbers:** 42224210076–42224210154
-- *Full student list viewable in the Student Directory section.*
+- Full syllabus (theory and lab) for each core subject available in-app (in “Syllabus” tab).
+- Browse topic breakdowns, unit details, and required experiments (labs) in the modal view.
 
 ***
 
-## 🧭 Usage Guide
+## 👥 Student Directory
 
-- **Navigation:**
-    - Click any subject slot for full details
-    - Access student or faculty lists from top or modal links
-    - View syllabus and academic calendar via dedicated tabs
-    - Toggle dark/light theme at top-right
-- **Today’s class and time:** Highlighted in timetable grid and calendar
-- **Legend:** Color codes for class, lab, lunch, free period, holiday, assignment, exam
+- **Section B**: 79 students (Registration: 42224210076–42224210154)
+- **Section A**: 75 students (Registration: 42224210001–42224210075)
+- List view with name and registration number for each section.
+- Filtered and sorted in modal window via "Student List" tab.
 
 ***
 
-## ⚡ Quick Start
+## 👨🏫 Faculty Directory
 
-**Direct Use**
-
-1. Download this repository
-2. Open `index.html` in any modern browser
-
-**GitHub Pages**
-
-- Visit the [live demo](https://mahsanneyaz.github.io/3rd-sem-timetable/)
+- List of all teaching and coordinating staff—with their department and subjects—accessible from the "Faculty" modal window.
 
 ***
 
 ## 🛠️ Tech Stack
 
-- Semantic HTML5
-- CSS3 (custom properties, grid, flexbox)
-- Vanilla JavaScript
-- 1500+ lines design system (see `style.css`)
-- No dependencies; fully offline-capable
-- Accessibility-first design
+- HTML5
+- Modern CSS (custom properties, grid/flex, media queries)
+- Vanilla JavaScript (single file, no libraries required)
+- Fully offline; all logic and data are client-side
 
 ***
 
-## 📁 Project Structure
+## 📁 Structure
 
 ```plaintext
 3rd-sem-timetable/
-├── index.html          # Main HTML structure
-├── style.css           # Styling & design system
-├── app.js              # App data & logic (timetable, calendar, syllabus)
-└── README.md           # Documentation
+├── index.html      # Main HTML structure
+├── style.css       # Design system, dark/light themes, grid, responsiveness
+├── app.js          # App logic, data (timetable, directories, syllabus, events)
+└── README.md       # Documentation (this file)
 ```
-
 
 ***
 
-## ♿ Accessibility \& Performance
+## ♿ Accessibility \& Optimization
 
-- Reduced-motion animations
-- High-contrast theme options
-- Fully responsive and mobile optimized
-- ARIA labels and keyboard navigation support
+- Reduced-motion, accessible animation
+- Hybrid color palette, theme detection, and toggling
+- Responsive for all device sizes (desktop, tablet, mobile)
+- Semantic markup and ARIA roles for enhanced navigation
 
 ***
 
 ## 🗺️ Roadmap
 
-- Exam schedule integration
-- Assignment tracker module
-- Attendance calculator
-- Notes and reminders system
-- Export to calendar (.ics, Google)
-- Sync with cloud storage
+- Enhanced exam and assignment management in calendar
+- Student attendance calculator
+- Notes and reminders for individual slots/days
+- ICS calendar export and Google integration
+- Data entry validation for timetable and events
 
 ***
 
@@ -185,36 +180,29 @@ Detailed syllabi are available in-app (see *Syllabus* tab/modal) for all core su
 
 ## 🤝 Contributing
 
-All contributions, issues, and feature requests are welcome!
+1. Fork the repository
+2. Create a feature branch
+3. Commit with descriptive messages
+4. Open a pull request (UI screenshots encouraged)
 
-- Fork the repository
-- Create a feature branch
-- Commit with clear messages
-- Open a pull request (screenshots encouraged for UI)
+**Starter suggestions:**
 
-**Suggestions for first-time contributors:**
-
-- Data validation for timetable entries
-- Improving accessibility labels/UI
-- Enhance mobile layout for small screens
-- Add tests for slot detection
+- Add new academic events or holidays
+- Improve accessibility labels
+- Enhance mobile usability or styles
+- Propose new features (attendance, reminder, etc.)
 
 ***
 
 ## 🔑 License
 
-Open source project.
+Open source.
 
 ***
 
-## ⭐ Acknowledgments
-
-Created with ❤️ for BCA 3B students at SRM University Delhi-NCR.
-If you found it useful, star the repository \& share with classmates.
+*Made with ❤️ for all BCA 3B students at SRM University Delhi-NCR.
+If this helped you, please share and star the repo!*
 
 ***
 
-*For any issues, fell free to contact.*
-
-
-[^1]: https://mahsanneyaz.github.io/3rd-sem-timetable/
+<div style="text-align: center">⁂</div>

@@ -1614,3 +1614,40 @@ select.form-control {
     font-size: 10px;
   }
 }
+
+
+@media (max-width: 768px) {
+  .header-content {
+    /* Revert to a row layout instead of a column */
+    flex-direction: row;
+    align-items: center; /* Vertically align items */
+    gap: var(--space-12);
+  }
+
+  .university-info {
+    /* Allow the university info to take available space */
+    flex: 1; 
+    text-align: left; /* Align text to the left */
+  }
+
+  .university-name {
+    /* Reduce font size on smaller screens */
+    font-size: var(--font-size-lg); 
+  }
+
+  .program-details {
+    /* Stop the details from centering */
+    justify-content: flex-start;
+  }
+  
+  .header-controls {
+    /* Revert to a row layout and allow shrinking */
+    flex-direction: row;
+    flex-shrink: 0;
+  }
+
+  .current-time {
+    /* Re-align the time and date to the right */
+    align-items: flex-end;
+  }
+}
