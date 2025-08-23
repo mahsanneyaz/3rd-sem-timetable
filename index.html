@@ -5,7 +5,1111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timetable - SRM University</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            /* Color Tokens */
+            --color-white: #fff;
+            --color-black: #000;
+            --color-cream-50: #fcfcf9;
+            --color-cream-100: #fffffd;
+            --color-gray-200: #f5f5f5;
+            --color-gray-300: #a7a9a9;
+            --color-gray-400: #777c7c;
+            --color-slate-500: #626c71;
+            --color-brown-600: #5e5240;
+            --color-charcoal-700: #1f2121;
+            --color-charcoal-800: #262828;
+            --color-slate-900: #13343b;
+            --color-teal-300: #32b8c6;
+            --color-teal-400: #2da6b2;
+            --color-teal-500: #21808d;
+            --color-teal-600: #1d7480;
+            --color-teal-700: #1a6873;
+            --color-teal-800: #2996a1;
+            --color-red-400: #ff5459;
+            --color-red-500: #c0152f;
+            --color-orange-400: #e68161;
+            --color-orange-500: #a84b2f;
+            --color-blue-400: #60a5fa;
+            --color-blue-500: #3b82f6;
+            --color-green-400: #4ade80;
+            --color-green-500: #22c55e;
+
+            /* Light Mode */
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(94, 82, 64, 0.12);
+            --color-secondary-hover: rgba(94, 82, 64, 0.2);
+            --color-secondary-active: rgba(94, 82, 64, 0.25);
+            --color-border: rgba(94, 82, 64, 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(94, 82, 64, 0.12);
+            --color-card-border-inner: rgba(94, 82, 64, 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(33, 128, 141, 0.4);
+            --color-select-caret: rgba(19, 52, 59, 0.8);
+            --color-exam: var(--color-blue-500);
+            --color-assignment: var(--color-green-500);
+
+            /* Dark Mode */
+            --dark-color-background: var(--color-charcoal-700);
+            --dark-color-surface: var(--color-charcoal-800);
+            --dark-color-text: var(--color-gray-200);
+            --dark-color-text-secondary: rgba(167, 169, 169, 0.7);
+            --dark-color-primary: var(--color-teal-300);
+            --dark-color-primary-hover: var(--color-teal-400);
+            --dark-color-primary-active: var(--color-teal-800);
+            --dark-color-secondary: rgba(119, 124, 124, 0.15);
+            --dark-color-secondary-hover: rgba(119, 124, 124, 0.25);
+            --dark-color-secondary-active: rgba(119, 124, 124, 0.3);
+            --dark-color-border: rgba(119, 124, 124, 0.3);
+            --dark-color-error: var(--color-red-400);
+            --dark-color-success: var(--color-teal-300);
+            --dark-color-warning: var(--color-orange-400);
+            --dark-color-info: var(--color-gray-300);
+            --dark-color-focus-ring: rgba(50, 184, 198, 0.4);
+            --dark-color-btn-primary-text: var(--color-slate-900);
+            --dark-color-card-border: rgba(119, 124, 124, 0.15);
+            --dark-color-card-border-inner: rgba(119, 124, 124, 0.15);
+            --dark-color-select-caret: rgba(245, 245, 245, 0.8);
+            --dark-color-exam: var(--color-blue-400);
+            --dark-color-assignment: var(--color-green-400);
+
+            /* Typography */
+            --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --letter-spacing-tight: -0.01em;
+
+            /* Spacing */
+            --space-0: 0;
+            --space-1: 1px;
+            --space-2: 2px;
+            --space-4: 4px;
+            --space-6: 6px;
+            --space-8: 8px;
+            --space-10: 10px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+
+            /* Shadows */
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+            /* Animation */
+            --duration-fast: 150ms;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Layout */
+            --container-sm: 640px;
+            --container-md: 768px;
+            --container-lg: 1024px;
+            --container-xl: 1280px;
+        }
+
+        [data-color-scheme="dark"] {
+            --color-background: var(--dark-color-background);
+            --color-surface: var(--dark-color-surface);
+            --color-text: var(--dark-color-text);
+            --color-text-secondary: var(--dark-color-text-secondary);
+            --color-primary: var(--dark-color-primary);
+            --color-primary-hover: var(--dark-color-primary-hover);
+            --color-primary-active: var(--dark-color-primary-active);
+            --color-secondary: var(--dark-color-secondary);
+            --color-secondary-hover: var(--dark-color-secondary-hover);
+            --color-secondary-active: var(--dark-color-secondary-active);
+            --color-border: var(--dark-color-border);
+            --color-error: var(--dark-color-error);
+            --color-success: var(--dark-color-success);
+            --color-warning: var(--dark-color-warning);
+            --color-info: var(--dark-color-info);
+            --color-focus-ring: var(--dark-color-focus-ring);
+            --color-btn-primary-text: var(--dark-color-btn-primary-text);
+            --color-card-border: var(--dark-color-card-border);
+            --color-card-border-inner: var(--dark-color-card-border-inner);
+            --color-exam: var(--dark-color-exam);
+            --color-assignment: var(--dark-color-assignment);
+            --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+        }
+
+        /* Base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text);
+            background-color: var(--color-background);
+            -webkit-font-smoothing: antialiased;
+            transition: background-color var(--duration-normal), color var(--duration-normal);
+        }
+
+        .app-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: var(--color-surface);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--space-12) 0;
+        }
+
+        .header-content {
+            max-width: var(--container-xl);
+            margin: 0 auto;
+            padding: 0 var(--space-16);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-20);
+        }
+
+        .university-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            flex-shrink: 1;
+            min-width: 0;
+        }
+
+        .university-name {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .program-details {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-8);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-top: var(--space-4);
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: var(--space-20);
+            flex-shrink: 0;
+        }
+
+        .header-icons {
+            display: flex;
+            align-items: center;
+            gap: var(--space-12);
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: var(--space-4);
+            color: var(--color-text);
+            border-radius: var(--radius-sm);
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--color-secondary);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .current-time {
+            text-align: right;
+            cursor: pointer;
+            padding: var(--space-4) var(--space-8);
+            border-radius: var(--radius-sm);
+            transition: background-color var(--duration-fast);
+        }
+
+        .current-time:hover {
+            background-color: var(--color-secondary);
+        }
+
+        .time-display {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-primary);
+        }
+
+        .date-display {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-top: var(--space-2);
+        }
+
+        [data-color-scheme="dark"] .theme-toggle .sun-icon {
+            display: none;
+        }
+
+        [data-color-scheme="light"] .theme-toggle .moon-icon {
+            display: none;
+        }
+
+        .time-seconds {
+            font-size: 0.7em;
+            font-weight: var(--font-weight-normal);
+            color: var(--color-text-secondary);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: var(--space-32) 0;
+        }
+
+        .timetable-container {
+            max-width: var(--container-xl);
+            margin: 0 auto;
+            padding: 0 var(--space-16);
+        }
+
+        .timetable-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-24);
+            flex-wrap: wrap;
+            gap: var(--space-16);
+        }
+
+        .timetable-header h2 {
+            font-size: var(--font-size-3xl);
+            color: var(--color-text);
+        }
+
+        .teacher-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        .separator {
+            color: var(--color-text-secondary);
+        }
+
+        /* Timetable Grid */
+        .timetable-grid {
+            display: grid;
+            grid-template-columns: 120px repeat(5, 1fr);
+            gap: var(--space-2);
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--space-16);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border);
+            margin-bottom: var(--space-32);
+            overflow-x: auto;
+        }
+
+        .grid-header,
+        .grid-time {
+            padding: var(--space-12);
+            text-align: center;
+            font-weight: var(--font-weight-semibold);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-sm);
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-secondary);
+        }
+
+        .grid-time {
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-xs);
+        }
+
+        .grid-cell {
+            background-color: var(--color-secondary);
+            padding: var(--space-8);
+            border-radius: var(--radius-sm);
+            transition: all var(--duration-normal) var(--ease-standard);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-medium);
+            min-height: 48px;
+            border: 1px solid transparent;
+            cursor: pointer;
+        }
+
+        .grid-cell:not(.lunch):not(.free):hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-primary);
+        }
+
+        .grid-cell.subject {
+            background-color: rgba(var(--color-primary-rgb, 33, 128, 141), 0.15);
+            color: var(--color-text);
+        }
+
+        .grid-cell.lab {
+            background-color: rgba(107, 33, 168, 0.15);
+            color: var(--color-text);
+        }
+
+        .grid-cell.lunch,
+        .grid-cell.free {
+            cursor: default;
+        }
+
+        .grid-cell.lunch {
+            background-color: rgba(194, 65, 12, 0.15);
+            color: var(--color-text);
+        }
+
+        .grid-cell.free {
+            background-color: rgba(190, 24, 93, 0.15);
+            color: var(--color-text-secondary);
+            font-style: italic;
+        }
+
+        .grid-cell.today {
+            outline: 1px solid var(--color-primary-hover);
+            outline-offset: -1px;
+        }
+
+        .grid-cell.active-period {
+            box-shadow: 0 0 0 2px var(--color-primary);
+            background-color: rgba(8, 145, 178, 0.15);
+            color: var(--color-text);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 2px var(--color-primary);
+            }
+
+            50% {
+                box-shadow: 0 0 0 4px rgba(var(--color-primary-rgb, 33, 128, 141), 0.4);
+            }
+
+            100% {
+                box-shadow: 0 0 0 2px var(--color-primary);
+            }
+        }
+
+        /* Legend */
+        .legend {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--space-20);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .legend h3 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-16);
+            color: var(--color-text);
+        }
+
+        .legend-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-16);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            font-size: var(--font-size-xs);
+        }
+
+        .color-box {
+            width: 12px;
+            height: 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border);
+            flex-shrink: 0;
+        }
+
+        .color-box.subject {
+            background-color: rgba(var(--color-primary-rgb, 33, 128, 141), 0.15);
+        }
+
+        .color-box.lab {
+            background-color: rgba(107, 33, 168, 0.15);
+        }
+
+        .color-box.lunch {
+            background-color: rgba(194, 65, 12, 0.15);
+        }
+
+        .color-box.free {
+            background-color: rgba(190, 24, 93, 0.15);
+        }
+
+        .color-box.today {
+            background-color: rgba(8, 145, 178, 0.15);
+            animation: pulse 2s infinite;
+        }
+
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-16);
+        }
+
+        .modal.hidden {
+            display: none;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--color-border);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            animation: modalSlideIn var(--duration-normal) var(--ease-standard);
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: var(--space-20);
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .modal-header h3 {
+            font-size: var(--font-size-xl);
+            color: var(--color-text);
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: var(--font-size-3xl);
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+            transition: color var(--duration-fast) var(--ease-standard);
+        }
+
+        .modal-close:hover {
+            color: var(--color-text);
+        }
+
+        .modal-body {
+            padding: var(--space-20);
+            overflow-y: auto;
+        }
+
+        .subject-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-16);
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: var(--space-16);
+            padding: var(--space-12);
+            background-color: var(--color-background);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border);
+        }
+
+        .detail-label {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-secondary);
+            min-width: 100px;
+            font-size: var(--font-size-sm);
+        }
+
+        .detail-value {
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text);
+            text-align: right;
+            flex: 1;
+            font-size: var(--font-size-sm);
+        }
+
+        /* Modal-specific styles */
+        .modal-tabs {
+            display: flex;
+            gap: var(--space-8);
+            margin-bottom: var(--space-16);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .tab-btn {
+            padding: var(--space-8) var(--space-16);
+            cursor: pointer;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--color-text-secondary);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .tab-btn.active {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+        }
+
+        .student-list-container,
+        #facultyListContainer {
+            font-size: var(--font-size-sm);
+        }
+
+        .student-table,
+        .faculty-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .student-table th,
+        .student-table td,
+        .faculty-table th,
+        .faculty-table td {
+            padding: var(--space-8) var(--space-12);
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .student-table th,
+        .faculty-table th {
+            font-weight: var(--font-weight-semibold);
+            background-color: var(--color-secondary);
+        }
+
+        .student-table tr:last-child td,
+        .faculty-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            padding: var(--space-20) 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: var(--container-xl);
+            margin: 0 auto;
+            padding: 0 var(--space-16);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-16);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+
+        .footer-link {
+            cursor: pointer;
+            color: var(--color-text-secondary);
+        }
+
+        .footer-link:hover {
+            text-decoration: underline;
+            color: var(--color-text);
+        }
+
+        /* Calendar Styles */
+        #dateTimeTrigger {
+            cursor: pointer;
+        }
+
+        .calendar-container {
+            padding: var(--space-8);
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-16);
+        }
+
+        .calendar-header h4 {
+            font-size: var(--font-size-lg);
+            color: var(--color-text);
+            margin: 0;
+        }
+
+        .calendar-header button {
+            background: var(--color-secondary);
+            color: var(--color-text);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: bold;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            transition: background-color var(--duration-fast);
+        }
+
+        .calendar-header button:hover {
+            background: var(--color-secondary-hover);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: var(--space-4);
+            text-align: center;
+        }
+
+        .calendar-grid div {
+            font-size: var(--font-size-sm);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1 / 1;
+        }
+
+        .calendar-day-header {
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text-secondary);
+        }
+
+        .calendar-day {
+            color: var(--color-text);
+            position: relative;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: var(--space-4);
+            gap: var(--space-4);
+        }
+
+        .calendar-day.current-day>span {
+            background-color: var(--color-primary);
+            color: var(--color-btn-primary-text);
+            font-weight: var(--font-weight-bold);
+            border-radius: var(--radius-full);
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .event-dots-container {
+            display: flex;
+            gap: 3px;
+            height: 5px;
+        }
+
+        .event-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .dot-holiday {
+            background-color: var(--color-error);
+        }
+
+        .dot-exam {
+            background-color: var(--color-exam);
+        }
+
+        .dot-assignment {
+            background-color: var(--color-assignment);
+        }
+
+        /* Custom Tooltip Styles */
+        .custom-tooltip {
+            position: fixed;
+            background-color: var(--color-charcoal-700);
+            color: var(--color-cream-50);
+            padding: var(--space-12);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-sm);
+            z-index: 1001;
+            pointer-events: none;
+            opacity: 0;
+            transform-origin: top center;
+            transform: scale(0.95) translateY(10px);
+            transition: opacity var(--duration-fast) ease-in-out, transform var(--duration-fast) ease-in-out;
+            max-width: 280px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .custom-tooltip.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .custom-tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: transparent transparent var(--color-charcoal-700) transparent;
+        }
+
+        .custom-tooltip.position-top {
+            transform-origin: bottom center;
+        }
+
+        .custom-tooltip.position-top::after {
+            top: 100%;
+            bottom: auto;
+            transform: translateX(-50%) rotate(180deg);
+        }
+
+        .tooltip-event-item {
+            display: flex;
+            flex-direction: column;
+            padding-left: var(--space-12);
+            border-left-width: 3px;
+            border-left-style: solid;
+        }
+
+        .tooltip-event-item+.tooltip-event-item {
+            margin-top: var(--space-8);
+            padding-top: var(--space-8);
+            border-top: 1px solid var(--color-border);
+        }
+
+        .tooltip-event-item.item-exam {
+            border-left-color: var(--color-exam);
+        }
+
+        .tooltip-event-item.item-assignment {
+            border-left-color: var(--color-assignment);
+        }
+
+        .tooltip-event-item.item-holiday {
+            border-left-color: var(--color-error);
+        }
+
+        .tooltip-event-item strong {
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-2);
+        }
+
+        .tooltip-event-item span {
+            font-size: var(--font-size-sm);
+            color: var(--color-gray-300);
+        }
+
+        .tooltip-event-item small {
+            font-size: var(--font-size-xs);
+            color: var(--color-gray-400);
+            margin-top: var(--space-4);
+            line-height: 1.4;
+        }
+
+        [data-color-scheme="light"] .custom-tooltip {
+            background-color: var(--color-slate-900);
+            color: var(--color-cream-100);
+            border-color: transparent;
+        }
+
+        [data-color-scheme="light"] .custom-tooltip::after {
+            border-color: transparent transparent var(--color-slate-900) transparent;
+        }
+
+        [data-color-scheme="light"] .tooltip-event-item+.tooltip-event-item {
+            border-top-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Syllabus Modal Styles */
+        .syllabus-content-container {
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+        }
+
+        .syllabus-content {
+            display: none;
+        }
+
+        .syllabus-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .syllabus-content h4 {
+            font-size: var(--font-size-lg);
+            margin-top: var(--space-20);
+            margin-bottom: var(--space-8);
+            color: var(--color-primary);
+            padding-bottom: var(--space-4);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .syllabus-content h5 {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-semibold);
+            margin-top: var(--space-16);
+            margin-bottom: var(--space-8);
+        }
+
+        .syllabus-content p {
+            margin-bottom: var(--space-12);
+        }
+
+        .syllabus-content ol {
+            padding-left: var(--space-20);
+        }
+
+        .syllabus-content li {
+            margin-bottom: var(--space-8);
+        }
+
+        .syllabus-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--space-16);
+            margin-bottom: var(--space-16);
+            font-size: var(--font-size-xs);
+        }
+
+        .syllabus-table th,
+        .syllabus-table td {
+            padding: var(--space-8);
+            text-align: left;
+            border: 1px solid var(--color-border);
+        }
+
+        .syllabus-table th {
+            font-weight: var(--font-weight-semibold);
+            background-color: var(--color-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+                align-items: center;
+                row-gap: var(--space-12);
+            }
+
+            .header-controls {
+                display: contents;
+            }
+
+            .university-info {
+                order: 1;
+                flex-grow: 1;
+            }
+
+            .current-time {
+                order: 2;
+            }
+
+            .header-icons {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .university-name {
+                font-size: var(--font-size-lg);
+            }
+
+            .program-details {
+                display: none;
+            }
+
+            .time-display {
+                font-size: var(--font-size-base);
+            }
+
+            .date-display {
+                font-size: var(--font-size-xs);
+            }
+
+            .timetable-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .timetable-grid {
+                grid-template-columns: 80px repeat(5, minmax(80px, 1fr));
+                font-size: var(--font-size-xs);
+            }
+
+            .grid-cell {
+                min-height: 40px;
+                padding: var(--space-4);
+            }
+
+            .legend-items {
+                justify-content: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .modal-content {
+                margin: var(--space-16);
+                max-width: calc(100vw - 32px);
+                max-height: calc(100vh - 32px);
+            }
+
+            .detail-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-8);
+            }
+
+            .detail-value {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timetable-grid {
+                grid-template-columns: 60px repeat(5, minmax(60px, 1fr));
+                padding: var(--space-8);
+                gap: var(--space-1);
+            }
+
+            .grid-header,
+            .grid-time {
+                padding: var(--space-6);
+                font-size: 10px;
+            }
+
+            .grid-cell {
+                min-height: 36px;
+                padding: var(--space-2);
+                font-size: 10px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -13,51 +1117,51 @@
         <header class="header">
             <div class="header-content">
                 <div class="university-info">
-                    <div class="university-text-container">
-                        <h1 class="university-name">SRM University Delhi-NCR, Sonepat</h1>
-                        <div class="program-details">
-                            <span class="program">BCA Semester III, Section B</span>
-                            <span class="separator">•</span>
-                            <span class="room">Room: A-407</span>
-                            <span class="separator">•</span>
-                            <span class="session">Session: 2025 (ODD Semester)</span>
-                        </div>
+                    <h1 class="university-name">SRM University</h1>
+                    <div class="program-details">
+                        <span class="program">BCA Semester III, Section B</span>
+                        <span class="separator">•</span>
+                        <span class="room">Room: A-407</span>
+                        <span class="separator">•</span>
+                        <span class="session">Session: 2025 (ODD Semester)</span>
                     </div>
-
                 </div>
                 <div class="header-controls">
-                    <button class="theme-toggle" id="themeToggle" title="Toggle light/dark theme">
-                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                    </button>
-                    <button class="theme-toggle" id="calendarToggle" title="Open academic calendar">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="16" y1="2" x2="16" y2="6"></line>
-                            <line x1="8" y1="2" x2="8" y2="6"></line>
-                            <line x1="3" y1="10" x2="21" y2="10"></line>
-                        </svg>
-                    </button>
+                    <div class="header-icons">
+                        <button class="theme-toggle" id="themeToggle" title="Toggle light/dark theme">
+                            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5"></circle>
+                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </svg>
+                            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </button>
+                        <button class="theme-toggle" id="calendarToggle" title="Open academic calendar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </button>
+                    </div>
                     <div class="current-time" id="dateTimeTrigger">
-                        <div class="time-display" id="currentTime">3:00:00 PM</div>
-                        <div class="date-display" id="currentDate">Sunday, Aug 10, 2025</div>
+                        <div class="time-display" id="currentTime">10:15:31 PM</div>
+                        <div class="date-display" id="currentDate">Wednesday, Aug 20, 2025</div>
                     </div>
                 </div>
             </div>
@@ -212,7 +1316,6 @@
             </div>
         </div>
 
-
         <footer class="footer">
             <div class="footer-content">
                 <div class="info">
@@ -227,7 +1330,701 @@
         </footer>
     </div>
 
-    <script src="app.js"></script>
+    <script>
+        // Timetable data and application logic
+        const studentDataA = [
+            { no: 1, reg: "42224210001", name: "SAMEER GOSWAMI" }, { no: 2, reg: "42224210002", name: "AKSHAY" },
+            { no: 3, reg: "42224210003", name: "KRISHNA KHANDELWAL" }, { no: 4, reg: "42224210004", name: "RONIT CHUGH" },
+            { no: 5, reg: "42224210005", name: "MILAN DHAMA" }, { no: 6, reg: "42224210006", name: "SNEHA SHARMA" },
+            { no: 7, reg: "42224210007", name: "TANYA BEHL" }, { no: 8, reg: "42224210008", name: "UDIT PANDEY" },
+            { no: 9, reg: "42224210009", name: "MANAV ARYA" }, { no: 10, reg: "42224210010", name: "SHUBHAM DANGI" },
+            { no: 11, reg: "42224210011", name: "SHIVANK DANGI" }, { no: 12, reg: "42224210012", name: "TEESHA ARORA" },
+            { no: 13, reg: "42224210013", name: "ROSHAN SHARMA" }, { no: 14, reg: "42224210014", name: "SAGAR SHARMA" },
+            { no: 15, reg: "42224210015", name: "SAAD" }, { no: 16, reg: "42224210016", name: "VINEET DHAMA" },
+            { no: 17, reg: "42224210017", name: "SAMEER" }, { no: 18, reg: "42224210018", name: "ANISHA" },
+            { no: 19, reg: "42224210019", name: "RISHABH" }, { no: 20, reg: "42224210020", name: "MUSKAN" },
+            { no: 21, reg: "42224210021", name: "MEHAK" }, { no: 22, reg: "42224210022", name: "ANSH GAUTAM" },
+            { no: 23, reg: "42224210023", name: "DAKSH DAHIYA" }, { no: 24, reg: "42224210024", name: "ASHWANI" },
+            { no: 25, reg: "42224210025", name: "PARAS" }, { no: 26, reg: "42224210026", name: "Tanuj Phougat" },
+            { no: 27, reg: "42224210027", name: "KRISH" }, { no: 28, reg: "42224210028", name: "ANUSH" },
+            { no: 29, reg: "42224210029", name: "YASH" }, { no: 30, reg: "42224210030", name: "DIVYANSHU" },
+            { no: 31, reg: "42224210031", name: "MOHIT NAIN" }, { no: 32, reg: "42224210032", name: "ISHA" },
+            { no: 33, reg: "42224210033", name: "NIRBHAY CHAUHAN" }, { no: 34, reg: "42224210034", name: "VANSH KHATRI" },
+            { no: 35, reg: "42224210035", name: "DEEPAK ROHILLA" }, { no: 36, reg: "42224210036", name: "KESHAR SHARMA" },
+            { no: 37, reg: "42224210037", name: "SUSHANT" }, { no: 38, reg: "42224210038", name: "YASH" },
+            { no: 39, reg: "42224210039", name: "VIPUL KUMAR" }, { no: 40, reg: "42224210040", name: "SHORYA KHAIWAL" },
+            { no: 41, reg: "42224210041", name: "MOHAMMAD SHAHID" }, { no: 42, reg: "42224210042", name: "HARSH KUMAR" },
+            { no: 43, reg: "42224210043", name: "JAY KUMAR" }, { no: 44, reg: "42224210044", name: "TUSHAR ANTIL" },
+            { no: 45, reg: "42224210045", name: "KHUSHI CHAUHAN" }, { no: 46, reg: "42224210046", name: "KUNAL" },
+            { no: 47, reg: "42224210047", name: "NIDHI CHAUHAN" }, { no: 48, reg: "42224210048", name: "PARWATI" },
+            { no: 49, reg: "42224210049", name: "SASHAKT YADAV" }, { no: 50, reg: "42224210050", name: "MAYANK" },
+            { no: 51, reg: "42224210051", name: "ASHUTOSH KARN" }, { no: 52, reg: "42224210052", name: "YASH TYAGI" },
+            { no: 53, reg: "42224210053", name: "KISHAN SINGH" }, { no: 54, reg: "42224210054", name: "DEV KUMAR" },
+            { no: 55, reg: "42224210055", name: "ALISH DHAMA" }, { no: 56, reg: "42224210056", name: "ATUL" },
+            { no: 57, reg: "42224210057", name: "KARTIK" }, { no: 58, reg: "42224210058", name: "KUSHAGRA SINGH RAUTELA" },
+            { no: 59, reg: "42224210059", name: "RITIK" }, { no: 60, reg: "42224210060", name: "RISHAV KUMAR" },
+            { no: 61, reg: "42224210061", name: "DISHA" }, { no: 62, reg: "42224210062", name: "TUSHAR" },
+            { no: 63, reg: "42224210063", name: "SAKET SWAMI" }, { no: 64, reg: "42224210064", name: "HARSHITA NANDAL" },
+            { no: 65, reg: "42224210065", name: "PRIYA" }, { no: 66, reg: "42224210066", name: "SANCHI BANSAL" },
+            { no: 67, reg: "42224210067", name: "RAGHAV" }, { no: 68, reg: "42224210068", name: "SHITIZ TYAGI" },
+            { no: 69, reg: "42224210069", name: "TANISHQ NANDAL" }, { no: 70, reg: "42224210070", name: "YASH RAJ" },
+            { no: 71, reg: "42224210071", name: "TANVI" }, { no: 72, reg: "42224210072", name: "DIVYANSHU VERMA" },
+            { no: 73, reg: "42224210073", name: "SARTHI" }, { no: 74, reg: "42224210074", name: "YATHARTH GARG" },
+            { no: 75, reg: "42224210075", name: "MOHIT JOSHI" }
+        ];
+
+        const studentDataB = [
+            { no: 1, name: "AYSHA PANDA", reg: "42224210076" }, { no: 2, name: "TUSHAR", reg: "42224210077" },
+            { no: 3, name: "KHUSHBOO", reg: "42224210078" }, { no: 4, name: "BHUMI VAID", reg: "42224210079" },
+            { no: 5, name: "ANIRUDH JINDAL", reg: "42224210080" }, { no: 6, name: "KUNAL", reg: "42224210081" },
+            { no: 7, name: "GAURAV SHARMA", reg: "42224210082" }, { no: 8, name: "ANURADHA GARG", reg: "42224210083" },
+            { no: 9, name: "DAKSH", reg: "42224210084" }, { no: 10, name: "LAKSHAY .", reg: "42224210085" },
+            { no: 11, name: "DEEPANSHU", reg: "42224210086" }, { no: 12, name: "LOVENISH CHAUHAN", reg: "42224210087" },
+            { no: 13, name: "VANSHUL SHARMA", reg: "42224210088" }, { no: 14, name: "ABHISHEK", reg: "42224210089" },
+            { no: 15, name: "KRISH KUMAR", reg: "42224210090" }, { no: 16, name: "KARTIKAY DUTT SHARMA", reg: "42224210091" },
+            { no: 17, name: "PARINEETA", reg: "42224210092" }, { no: 18, name: "SHUBHAM", reg: "42224210093" },
+            { no: 19, name: "MAHIR", reg: "42224210094" }, { no: 20, name: "KHUSHBU CHAUHAN", reg: "42224210095" },
+            { no: 21, name: "HARSHIT SOLANKI", reg: "42224210096" }, { no: 22, name: "YASH", reg: "42224210097" },
+            { no: 23, name: "VANSH KUMAR", reg: "42224210098" }, { no: 24, name: "ANANT GAUR", reg: "42224210099" },
+            { no: 25, name: "ISHANT", reg: "42224210100" }, { no: 26, name: "JATIN LOHCHAB", reg: "42224210101" },
+            { no: 27, name: "AKHIL", reg: "42224210102" }, { no: 28, name: "LAKSHAY", reg: "42224210103" },
+            { no: 29, name: "KUSHAGAR SINGH", reg: "42224210104" }, { no: 30, name: "HARSHIT", reg: "42224210105" },
+            { no: 31, name: "MOHINI", reg: "42224210106" }, { no: 32, name: "HIMANSHU KUMAR", reg: "42224210107" },
+            { no: 33, name: "KHUSHI", reg: "42224210108" }, { no: 34, name: "TANISH SHARMA", reg: "42224210109" },
+            { no: 35, name: "HUNNY", reg: "42224210110" }, { no: 36, name: "VANSH TYAGI", reg: "42224210111" },
+            { no: 37, name: "MOHAMMAD AHSAN NEYAZ", reg: "42224210112" }, { no: 38, name: "VIVEK", reg: "42224210113" },
+            { no: 39, name: "BHOOMI", reg: "42224210114" }, { no: 40, name: "MANAV DESWAL .", reg: "42224210115" },
+            { no: 41, name: "SHUBHANSHU SAINI", reg: "42224210116" }, { no: 42, name: "PRATIK KUMAR JHA", reg: "42224210117" },
+            { no: 43, name: "DAKSH YADAV", reg: "42224210118" }, { no: 44, name: "PIYUSH PAL", reg: "42224210119" },
+            { no: 45, name: "VANSH", reg: "42224210120" }, { no: 46, name: "TARUN KHATRI .", reg: "42224210121" },
+            { no: 47, name: "HARSH GOYAL", reg: "42224210122" }, { no: 48, name: "ADITYA", reg: "42224210123" },
+            { no: 49, name: "RAHUL KUMAR", reg: "42224210124" }, { no: 50, name: "NISHU", reg: "42224210125" },
+            { no: 51, name: "IBRAHEEM QAISER BHAT", reg: "42224210126" }, { no: 52, name: "RITIK", reg: "42224210127" },
+            { no: 53, name: "STEPHEN WILLIAM", reg: "42224210128" }, { no: 54, name: "PRASHANT PAL", reg: "42224210129" },
+            { no: 55, name: "Kunal Rajpal", reg: "42224210130" }, { no: 56, name: "KUSH CHAUHAN", reg: "42224210131" },
+            { no: 57, name: "JAI", reg: "42224210132" }, { no: 58, name: "AKSHAT JAIN", reg: "42224210133" },
+            { no: 59, name: "DAKSH BALYAN", reg: "42224210134" }, { no: 60, name: "AYUSH", reg: "42224210135" },
+            { no: 61, name: "CHIRAG", reg: "42224210136" }, { no: 62, name: "VANSH SHOKEEN", reg: "42224210137" },
+            { no: 63, name: "SAKSHI", reg: "42224210138" }, { no: 64, name: "MANAN GULATI", reg: "42224210139" },
+            { no: 65, name: "Ayush ", reg: "42224210140" }, { no: 66, name: "TUSHAR GILL", reg: "42224210141" },
+            { no: 67, name: "RAHUL", reg: "42224210142" }, { no: 68, name: "RISHIT KHURANA", reg: "42224210143" },
+            { no: 69, name: "PRATHAM ", reg: "42224210144" }, { no: 70, name: "ARYAN KUMAR", reg: "42224210145" },
+            { no: 71, name: "Yash", reg: "42224210146" }, { no: 72, name: "Ayush", reg: "42224210147" },
+            { no: 73, name: "Gautam", reg: "42224210148" }, { no: 74, name: "Shekhar", reg: "42224210149" },
+            { no: 75, name: "Chehak ", reg: "42224210150" }, { no: 76, name: "Hardik ", reg: "42224210151" },
+            { no: 77, name: "Jaswant", reg: "42224210152" }, { no: 78, name: "Pooja Jat", reg: "42224210153" },
+            { no: 79, name: "ADITYA", reg: "42224210154" }
+        ];
+
+        const aboutMeData = {
+            "Name": "Mohammad Ahsan Neyaz",
+            "Reg. No.": "42224210112",
+            "Age": "21",
+            "Course": "Bachelor of Computer Applications (B.C.A.), 3rd Semester",
+            "Section": "3B",
+            "Location": "India",
+            "Motto": '"Work smart. Stay consistent. Always Keep growing."'
+        };
+
+        const timetableData = {
+            "timetable": {
+                "MONDAY": { "9:30-10:30": "Sports,Yoga and Fitness", "10:30-11:30": "Sports,Yoga and Fitness", "11:30-12:30": "Data Communication & Networks", "12:30-1:30": "German-I/French-I", "1:30-2:30": "LUNCH", "2:30-3:30": "Electoral Literacy in India", "3:30-4:30": "Env. Studies" },
+                "TUESDAY": { "9:30-10:30": "Electoral Literacy in India", "10:30-11:30": "FREE", "11:30-12:30": "Operating Systems Concept", "12:30-1:30": "Env. Studies", "1:30-2:30": "LUNCH", "2:30-3:30": "FREE", "3:30-4:30": "Presentation Skills" },
+                "WEDNESDAY": { "9:30-10:30": "Operating Systems Concept", "10:30-11:30": "Database Management Systems", "11:30-12:30": "Env. Studies", "12:30-1:30": "Sports,Yoga and Fitness", "1:30-2:30": "LUNCH", "2:30-3:30": "Data Communication & Networks", "3:30-4:30": "Presentation Skills" },
+                "THURSDAY": { "9:30-10:30": "Operating Systems Concept", "10:30-11:30": "Env. Studies", "11:30-12:30": "Data Communication & Networks", "12:30-1:30": "Database Management Systems", "1:30-2:30": "LUNCH", "2:30-3:30": "Electoral Literacy in India", "3:30-4:30": "FREE" },
+                "FRIDAY": { "9:30-10:30": "Database Management Systems", "10:30-11:30": "SPSS", "11:30-12:30": "SPSS", "12:30-1:30": "German-I/French-I", "1:30-2:30": "LUNCH", "2:30-3:30": "DBMS LAB", "3:30-4:30": "DBMS LAB" }
+            },
+            "subjects": {
+                "Database Management Systems": { "code": "24BCA301", "name": "Database Management Systems (DBMS)", "faculty": "Dr. Kaleem", "department": "CSE" },
+                "Data Communication & Networks": { "code": "24BCA302", "name": "Data Communication and Networks (DCN)", "faculty": "Dr. Syed Mohtashim Mian", "department": "CSE" },
+                "Operating Systems Concept": { "code": "24BCA303", "name": "Operating Systems Concept (OS)", "faculty": "Mr. Rachit", "department": "CSE" },
+                "DBMS LAB": { "code": "24BCA304", "name": "Database Management Systems Lab (DBMS LAB)", "faculty": "Dr. Kaleem", "department": "CSE" },
+                "Env. Studies": { "code": "23ESUG201", "name": "Environmental Studies (Env. Studies)", "faculty": "Uqab Ali Baba", "department": "ENV. SCIENCE" },
+                "Electoral Literacy in India": { "code": "24MDCxx", "name": "Electoral Literacy in India (ELI)", "faculty": "Abhishank", "department": "POL.SC." },
+                "German-I/French-I": { "code": "23AECxxx", "name": "German-I/French-I", "faculty": "Mr.Sudip Das/Mr.Ashish Verma", "department": "LANGUAGE" },
+                "Sports,Yoga and Fitness": { "code": "23VACxxx", "name": "Sports,Yoga and Fitness (SYF)", "faculty": "Ms.Komal", "department": "SPORTS" },
+                "Presentation Skills": { "code": "23SS353", "name": "Presentation Skills (PS)", "faculty": "NF-A", "department": "PD" },
+                "SPSS": { "code": "23SS303", "name": "Statistical Skills with SPSS (SPSS)", "faculty": "Dr.Rashi Malik", "department": "MBA" }
+            },
+            "timeSlots": ["9:30-10:30", "10:30-11:30", "11:30-12:30", "12:30-1:30", "1:30-2:30", "2:30-3:30", "3:30-4:30"],
+            "days": ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY"]
+        };
+
+        const syllabusData = {
+            "Data Communication & Networks": `
+                <h4>Unit-1: INTRODUCTION</h4>
+                <p>Internet: A brief History; TCP/IP Model; OSI Model; Types of Networks : Local Area Networks, Metropolitan Area Networks, Wide Area Network; Topologies: Bus, Star, Ring, Hybrid, Tree, Complete, Irregular - Topology; Guided and unguided transmission media.</p>
+                <h4>Unit-2: DATA LINK LAYERS</h4>
+                <p>Data link Layer design issues: Framing, Error Detection & Correction: Checksum, CRC, Hamming codes; Elementary Data link Protocols- Sliding window Protocols; Media access control  Random Access: Aloha, CSMA; Controlled Access: Token Passing, Polling, Reservation; Channelization; Ethernet Standard;</p>
+                <h4>Unit-3: NETWORK LAYERS PROTOCOLS</h4>
+                <p>IPV4 Addressing  classful and classless, Network Address Translation, IPV4 Packet Format, Circuit Switching, Packet Switching, ARP, RARP, DHCP, ICMP and IGMP.</p>
+                <h4>Unit-4: NETWORK ROUTING</h4>
+                <p>LAN interconnecting devices: Hubs, Switches, Bridges, Routers, Gateways; Routing and Forwarding, Routing Table, Intra- and inter-domain routing, Distance vector routing, DVR Instability problem and solutions, RIP, Link State Routing, OSPF; Virtual Private Networks;</p>
+                <h4>Unit-5: TRANSPORT & APPLICATION LAYER</h4>
+                <p>Transmission Control Protocol; 3-way handshaking in TCP; User Datagram Protocol; Congestion control mechanisms; Application Layer: Email  SMTP, POP, IMAP; FTP, NNTP, HTTP, DNS, WWW, Firewall.</p>
+            `,
+            "Database Management Systems": `
+                <h4>Unit-1: Introduction To Data And Information</h4>
+                <p>Basic Concepts - Data Information, difference between data and information, Records and files,Traditional file - based Systems- File Based Approach- limitation of files Based Approach, Database Approach- characteristics of Database Approach, Database Management Systems (DBMS), Components of DBMS Environment, DBMS Functions and Components, Advantage and Disadvantage of DBMS.</p>
+                <h4>Unit-2: Architecture</h4>
+                <p>Database System Architecture - Three levels of Architecture, External, Conceptual and Internal Levels, Schemas, Mapping and Instance, Data Independence - Logical and Physical Data Independence. Classification of Database Management System, Centralization and client-Server Architecture to DBMS. Data Models: Records-based Data Models, Object-based data Models, object-based Data Models, physical Data Models and Conceptual Modeling.</p>
+                <h4>Unit-3: E-R Modelling</h4>
+                <p>Entry-Relationships Models -Entity Types, Entity Sets, Attribute Relationship Types, Relationship Instances and E-R Diagram, Basic Concepts of Hierarchal and network Data Models, difference between relational, hierarchical and network model, Relational Data Model: - Brief History, Relational Model Terminology-Relational Data Structure, Database Relations, Properties of Relations, Keys, Domains, and Integrity Constrains over Relations, Base table and views.</p>
+                <h4>Unit-4: Normalization</h4>
+                <p>Introduction to Schema Refinement -  Problems caused by redundancy, Decompositions - Problems related to decomposition, Functional Dependencies - Reasoning about FDS,Normal Forms - First, Second,Third Normal forms.</p>
+                <h4>Unit-5: Transaction & Recovery</h4>
+                <p>Transaction management ACID Properties, Transaction states, Concurrency control: Concurrency Control-Overview, Concurrency control problems, Locks, Locking Protocols, and Deadlocks.</p>
+            `,
+            "DBMS LAB": `
+                <h4>List of Experiments</h4>
+                <p>(A Student is suppose to complete/perform minimum 9 experiment)</p>
+                <h5>EMPLOYEE Schema</h5>
+                <table class="syllabus-table">
+                    <thead><tr><th>FIELD</th><th>TYPE</th><th>NULL</th><th>KEY</th><th>DEFAULT</th></tr></thead>
+                    <tbody>
+                        <tr><td>Eno.</td><td>Char(3)</td><td>NO</td><td>PRI</td><td>NIL</td></tr>
+                        <tr><td>Ename</td><td>Varchar(50)</td><td>NO</td><td></td><td>NIL</td></tr>
+                        <tr><td>job_type</td><td>Varchar(50)</td><td>NO</td><td></td><td>NIL</td></tr>
+                        <tr><td>Manager</td><td>Char(3)</td><td>YES</td><td>FK</td><td>NIL</td></tr>
+                        <tr><td>Hire_data</td><td>Date</td><td>NO</td><td></td><td>NIL</td></tr>
+                        <tr><td>Dno.</td><td>Integer</td><td>YES</td><td>FK</td><td>NIL</td></tr>
+                        <tr><td>Commission</td><td>Decimal(10,2)</td><td>YES</td><td></td><td>NIL</td></tr>
+                        <tr><td>Salary</td><td>Decimal(7,2)</td><td>NO</td><td></td><td>NIL</td></tr>
+                    </tbody>
+                </table>
+                <h5>DEPARTMENT Scheme</h5>
+                <table class="syllabus-table">
+                    <thead><tr><th>FIELD</th><th>TYPE</th><th>NULL</th><th>KEY</th><th>DEFAULT</th></tr></thead>
+                    <tbody>
+                        <tr><td>Dno.</td><td>Integer</td><td>NO</td><td>PRI</td><td>NULL</td></tr>
+                        <tr><td>Dname</td><td>Varchar(50)</td><td>YES</td><td></td><td>NULL</td></tr>
+                        <tr><td>Location</td><td>Varchar(50)</td><td>YES</td><td></td><td>NEW DELHI</td></tr>
+                    </tbody>
+                </table>
+                <ol>
+                    <li>Query to display Employee Name, job, Hire Date,Employee Number; for each employee with the Employee Number appearing first.</li>
+                    <li>Query to display unique job from the Employee Table.</li>
+                    <li>Query to display the Employee Name concatenated by a job separated by a comma.</li>
+                    <li>Query to display all the data from the Employee Table. Separate each Column by a comma and name the said column as THE_OUTPUT.</li>
+                    <li>Query to display the Employee Name and Salary of all theemployees earning more than $2850.</li>
+                    <li>Query to display Employee Name and Department Numberfor the Employee No= 7900.</li>
+                    <li>Query to display Employee Name and Salary for allemployees whose salary is not in range of $1500 and $2850.</li>
+                    <li>Query to display Employee Name and Department No. of all the employees in Dept 10 and Dept 30 in the alphabeticalorder by name</li>
+                    <li>Query to display Name and Hire Date of every Employeewho was hired in 1981.</li>
+                    <li>Query to display Name and job of all employees who don'thave a current Manager.</li>
+                </ol>
+            `,
+            
+            "Operating Systems Concepts": `
+                <h4>Unit-1: INTRODUCTION</h4>
+                <p>Basic OS functions, resource abstraction, types of operating systems–multiprogramming systems, multi-threading, batch systems, time sharing systems; case studies of real-life scenarios. Introduction to Operating Systems: Definition, need, and evolution, Functions of an Operating System, Types of Operating Systems Batch Systems:- Multiprogramming Systems, Time Sharing Systems, Multi-threaded Systems, Real-time and Embedded Systems (overview), Concepts of Resource Abstraction and System Calls. Real-life Case Studies: Comparison of Windows, Linux, Android, and mac OS.</p>
+
+                <h4>Unit-2: PROCESS MANAGEMENT</h4>
+                <p>System View of Processes and Resources, Process Concepts: Process States (New, Ready, Running, Waiting, Terminated)Process Control Block (PCB), Process Lifecycle and Hierarchy, Threading Concepts: Single vs. Multi-threaded processes, Process Creation, Termination, Role of Operating System in Process Scheduling and Coordination, Analyze process structure and manage processes effectively using OS principles.</p>
+
+                <h4>Unit-3: CPU SCHEDULING</h4>
+                <p>CPU Scheduling: Concepts and Criteria, Scheduling Algorithms: First Come First Serve (FCFS) Shortest Job First (SJF),Shortest Remaining Time First(SRTF)Round Robin (RR),Priority Scheduling, Highest Response Ratio Next (HRRN), Introduction to Multitasking and Context Switching, Concurrency and Race Conditions, Critical Section Problem, Synchronization Techniques: Semaphores (Binary and Counting), Mutual Exclusion (Mutex), Apply scheduling and synchronization techniques to optimize CPU performance.</p>
+
+                <h4>Unit-4: DEADLOCK</h4>
+                <p>Deadlock: Introduction and System Model, Deadlock Characterization: Necessary Conditions, Resource Allocation Graphs (RAG), Methods of Handling Deadlocks: Prevention, Avoidance (Banker’s Algorithm), Detection and Recovery, Practical Scenarios of Deadlock in Real Systems</p>
+
+                <h4>Unit-5: MEMORY MANAGEMENT</h4>
+                <p>Basic Memory Management Techniques, Swapping and Contiguous Memory Allocation: First Fit, Best Fit, worst Fit, Paging and Segmentation Segmentation with Paging, Virtual Memory: Demand Paging, Page Replacement Algorithms (FIFO, LRU, Optimal). Process Creation and address Binding.</p>
+            `
+        };
+
+        // ===================================================================================
+        // ACADEMIC EVENTS - THIS IS WHERE TO ADD EXAMS, ASSIGNMENTS, AND HOLIDAYS
+        // ===================================================================================
+        const academicEvents = {
+            // --- HOLIDAYS (UPDATED LIST) ---
+            "2025-08-09": [{ type: "holiday", remarks: "Raksha bandhan" }],
+            "2025-08-15": [{ type: "holiday", remarks: "Independence Day" }],
+            "2025-08-20": [{ type: "holiday", remarks: "Orientation" }],
+            "2025-08-21": [{ type: "holiday", remarks: "Induction" }],
+            "2025-09-05": [{ type: "holiday", remarks: "Milad-un-nabi" }],
+            "2025-09-22": [{ type: "holiday", remarks: "Maharaja Agrasen Jayanti" }],
+            "2025-09-23": [{ type: "holiday", remarks: "Haryana War heroes Martyrdom Day" }],
+            "2025-10-02": [{ type: "holiday", remarks: "Mahatma Gandhi Jayanti/Dussehra" }],
+            "2025-10-07": [{ type: "holiday", remarks: "Maharishi Valmiki / Maharaja Ajmidh jayanti" }],
+            "2025-10-20": [{ type: "holiday", remarks: "Diwali" }],
+            "2025-10-21": [{ type: "holiday", remarks: "Diwali" }],
+            "2025-11-05": [{ type: "holiday", remarks: "Guru nanak dev jayanti" }],
+            "2025-12-03": [{ type: "holiday", remarks: "Preparatory Leave" }],
+            "2025-12-25": [{ type: "holiday", remarks: "Christmas" }],
+            "2026-01-01": [{ type: "holiday", remarks: "Semester Break" }],
+
+            // --- EXAMS (EXAMPLES) ---
+            /*"2025-09-15": [
+                {
+                    type: "exam",
+                    name: "Internal Assessment 1",
+                    subject: "Database Management Systems",
+                    time: "10:30 AM - 11:30 AM",
+                    topics: "SQL Joins, Normalization (1NF, 2NF, 3NF)"
+                }
+            ],
+
+            // --- ASSIGNMENTS (EXAMPLES) ---
+            "2025-09-26": [
+                {
+                    type: "assignment",
+                    subject: "Env. Studies",
+                    task: "Prepare a report on local water pollution.",
+                    dueDate: "2025-09-26"
+                },
+                {
+                    type: "exam",
+                    name: "Internal Assessment 1",
+                    subject: "Database Management Systems",
+                    time: "10:30 AM - 11:30 AM",
+                    topics: "SQL Joins, Normalization (1NF, 2NF, 3NF)"
+                }
+            ]*/
+        };
+        // ===================================================================================
+        // END OF ACADEMIC EVENTS SECTION
+        // ===================================================================================
+
+        let cal_current_date = new Date();
+        let cal_current_month = cal_current_date.getMonth();
+        let cal_current_year = cal_current_date.getFullYear();
+
+        document.addEventListener('DOMContentLoaded', function () {
+            function initTheme() {
+                const themeToggle = document.getElementById('themeToggle');
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                document.documentElement.setAttribute('data-color-scheme', savedTheme);
+
+                themeToggle.addEventListener('click', function () {
+                    var currentTheme = document.documentElement.getAttribute('data-color-scheme');
+                    var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-color-scheme', newTheme);
+                    localStorage.setItem('theme', newTheme);
+                });
+            }
+
+            function getCurrentDay() {
+                const days = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+                return days[new Date().getDay()];
+            }
+
+            function updateDateTime() {
+                const now = new Date();
+                const dateOptions = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+                const displayHours = hours % 12 || 12;
+                const displayMinutes = minutes < 10 ? '0' + minutes : minutes;
+                const displaySeconds = seconds < 10 ? '0' + seconds : seconds;
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                document.getElementById('currentTime').innerHTML =
+                    `${displayHours}:${displayMinutes}<span class="time-seconds">:${displaySeconds}</span> ${ampm}`;
+                document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', dateOptions);
+            }
+
+            function generateTimetable() {
+                const grid = document.getElementById('timetableGrid');
+                if (!grid) return;
+                grid.innerHTML = '';
+                grid.appendChild(Object.assign(document.createElement('div'), { className: 'grid-header', textContent: 'Time/Day' }));
+                timetableData.days.forEach(function (day) {
+                    grid.appendChild(Object.assign(document.createElement('div'), { className: 'grid-header', textContent: formatDayName(day) }));
+                });
+                timetableData.timeSlots.forEach(function (timeSlot) {
+                    grid.appendChild(Object.assign(document.createElement('div'), { className: 'grid-time', textContent: timeSlot }));
+                    timetableData.days.forEach(function (day) {
+                        const subject = timetableData.timetable[day] && timetableData.timetable[day][timeSlot];
+                        const cell = document.createElement('div');
+                        cell.className = 'grid-cell';
+                        let cellText = subject || 'FREE';
+                        if (subject && window.innerWidth < 768) {
+                            const subjectDetails = timetableData.subjects[subject];
+                            if (subjectDetails) {
+                                const match = subjectDetails.name.match(/\(([^)]+)\)$/);
+                                if (match) {
+                                    cellText = match[1];
+                                }
+                            }
+                        }
+                        cell.textContent = cellText;
+                        cell.setAttribute('data-subject', subject || 'FREE');
+                        cell.setAttribute('data-time', timeSlot);
+                        cell.setAttribute('data-day', day);
+                        if (subject === 'LUNCH') {
+                            cell.classList.add('lunch');
+                        } else if (!subject || subject === 'FREE') {
+                            cell.classList.add('free');
+                        } else {
+                            cell.classList.add(subject.indexOf('LAB') > -1 ? 'lab' : 'subject');
+                            cell.addEventListener('click', function () {
+                                showModal('subjectModal', { subject: subject, timeSlot: timeSlot, day: day });
+                            });
+                        }
+                        if (day === getCurrentDay()) {
+                            cell.classList.add('today');
+                        }
+                        grid.appendChild(cell);
+                    });
+                });
+            }
+
+            function formatDayName(day) {
+                return day.charAt(0) + day.slice(1).toLowerCase();
+            }
+
+            function showModal(modalId, data) {
+                const modal = document.getElementById(modalId);
+                if (!modal) return;
+                populateModalContent(modalId, data);
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function hideModal(modalElement) {
+                modalElement.classList.add('hidden');
+                if (!document.querySelector('.modal:not(.hidden)')) {
+                    document.body.style.overflow = 'auto';
+                }
+            }
+
+            function populateModalContent(modalId, data) {
+                if (modalId === 'subjectModal') {
+                    const subjectInfo = timetableData.subjects[data.subject];
+                    if (!subjectInfo) return;
+                    document.getElementById('subjectName').textContent = subjectInfo.name;
+                    document.getElementById('subjectCode').textContent = subjectInfo.code;
+                    document.getElementById('subjectFaculty').textContent = subjectInfo.faculty;
+                    document.getElementById('subjectDepartment').textContent = subjectInfo.department;
+                    document.getElementById('subjectTime').textContent = data.timeSlot;
+                    document.getElementById('subjectDay').textContent = formatDayName(data.day);
+                } else if (modalId === 'studentModal') {
+                    renderStudentList('B');
+                } else if (modalId === 'facultyModal') {
+                    renderFacultyList();
+                } else if (modalId === 'aboutMeModal') {
+                    const container = document.getElementById('aboutMeContainer');
+                    container.innerHTML = '';
+                    for (const key in aboutMeData) {
+                        if (Object.hasOwnProperty.call(aboutMeData, key)) {
+                            container.innerHTML += `<div class="detail-row"><span class="detail-label">${key}:</span><span class="detail-value">${aboutMeData[key]}</span></div>`;
+                        }
+                    }
+                } else if (modalId === 'calendarModal') {
+                    renderCalendar();
+                } else if (modalId === 'syllabusModal') {
+                    renderSyllabus();
+                }
+            }
+
+            function renderSyllabus() {
+                const modalBody = document.getElementById('syllabusModalBody');
+                const subjects = Object.keys(syllabusData);
+
+                let tabsHTML = '<div class="modal-tabs">';
+                subjects.forEach((subject, index) => {
+                    tabsHTML += `<button class="tab-btn ${index === 0 ? 'active' : ''}" data-subject="${subject}">${subject}</button>`;
+                });
+                tabsHTML += '</div>';
+
+                let contentHTML = '<div class="syllabus-content-container">';
+                subjects.forEach((subject, index) => {
+                    contentHTML += `<div class="syllabus-content ${index === 0 ? 'active' : ''}" data-subject-content="${subject}">${syllabusData[subject]}</div>`;
+                });
+                contentHTML += '</div>';
+
+                modalBody.innerHTML = tabsHTML + contentHTML;
+
+                modalBody.querySelector('.modal-tabs').addEventListener('click', function (e) {
+                    if (e.target && e.target.matches('.tab-btn')) {
+                        const subject = e.target.getAttribute('data-subject');
+
+                        modalBody.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                        e.target.classList.add('active');
+
+                        modalBody.querySelectorAll('.syllabus-content').forEach(content => content.classList.remove('active'));
+                        modalBody.querySelector(`.syllabus-content[data-subject-content="${subject}"]`).classList.add('active');
+                    }
+                });
+            }
+
+            function renderStudentList(section) {
+                const container = document.getElementById('studentListContainer');
+                const data = section === 'A' ? studentDataA : studentDataB;
+                var tableHTML = `<table class="student-table"><thead><tr><th>Sl.No.</th><th>Name</th><th>Register No.</th></tr></thead><tbody>`;
+                data.forEach(function (s) {
+                    tableHTML += `<tr><td>${s.no}</td><td>${s.name}</td><td>${s.reg}</td></tr>`;
+                });
+                tableHTML += `</tbody></table>`;
+                container.innerHTML = tableHTML;
+                document.querySelectorAll('#studentModal .tab-btn').forEach(function (btn) {
+                    btn.classList.toggle('active', btn.getAttribute('data-section') === section);
+                });
+            }
+
+            function renderFacultyList() {
+                const container = document.getElementById('facultyListContainer');
+                const facultyList = [];
+                const uniqueFaculty = {};
+                Object.keys(timetableData.subjects).forEach(function (key) {
+                    var subject = timetableData.subjects[key];
+                    if (subject.faculty !== 'NF' && subject.faculty !== 'NF-A' && !uniqueFaculty[subject.faculty]) {
+                        uniqueFaculty[subject.faculty] = { name: subject.faculty, department: subject.department, subjects: [] };
+                    }
+                });
+                Object.keys(timetableData.subjects).forEach(function (key) {
+                    var subject = timetableData.subjects[key];
+                    if (uniqueFaculty[subject.faculty]) {
+                        uniqueFaculty[subject.faculty].subjects.push(subject.name.replace(/\s*\(.*\)\s*$/, ''));
+                    }
+                });
+                for (var name in uniqueFaculty) {
+                    facultyList.push(uniqueFaculty[name]);
+                }
+                facultyList.sort((a, b) => a.name.localeCompare(b.name));
+                var tableHTML = `<table class="faculty-table"><thead><tr><th>Faculty Name</th><th>Department</th><th>Subject(s)</th></tr></thead><tbody>`;
+                facultyList.forEach(function (f) {
+                    tableHTML += `<tr><td>${f.name}</td><td>${f.department}</td><td>${f.subjects.join(', ')}</td></tr>`;
+                });
+                tableHTML += `</tbody></table>`;
+                container.innerHTML = tableHTML;
+            }
+
+            function renderCalendar() {
+                const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+                document.getElementById('calendarTitle').textContent = `${monthNames[cal_current_month]} ${cal_current_year}`;
+                const firstDay = new Date(cal_current_year, cal_current_month, 1).getDay();
+                const daysInMonth = new Date(cal_current_year, cal_current_month + 1, 0).getDate();
+                const calendarGrid = document.getElementById('calendarGrid');
+                calendarGrid.innerHTML = '';
+                ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].forEach(day => {
+                    calendarGrid.innerHTML += `<div class="calendar-day-header">${day}</div>`;
+                });
+                for (let i = 0; i < firstDay; i++) {
+                    calendarGrid.innerHTML += `<div></div>`;
+                }
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayEl = document.createElement('div');
+                    dayEl.classList.add('calendar-day');
+                    const dayContent = document.createElement('span');
+                    dayContent.textContent = day;
+                    dayEl.appendChild(dayContent);
+
+                    const dateKey = `${cal_current_year}-${String(cal_current_month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                    const events = academicEvents[dateKey];
+
+                    if (events && events.length > 0) {
+                        const dotContainer = document.createElement('div');
+                        dotContainer.className = 'event-dots-container';
+                        const eventTypes = new Set(events.map(e => e.type));
+
+                        let tooltipHTML = '';
+
+                        eventTypes.forEach(type => {
+                            const dot = document.createElement('div');
+                            dot.className = `event-dot dot-${type}`;
+                            dotContainer.appendChild(dot);
+                        });
+
+                        events.forEach(event => {
+                            tooltipHTML += `<div class="tooltip-event-item item-${event.type}">`;
+                            if (event.type === 'exam') {
+                                tooltipHTML += `<strong>${event.name}</strong>`;
+                                tooltipHTML += `<span>${event.subject} (${event.time})</span>`;
+                                tooltipHTML += `<small>Topics: ${event.topics}</small>`;
+                            } else if (event.type === 'assignment') {
+                                tooltipHTML += `<strong>Assignment Due</strong>`;
+                                tooltipHTML += `<span>${event.subject}</span>`;
+                                tooltipHTML += `<small>Task: ${event.task}</small>`;
+                            } else if (event.type === 'holiday') {
+                                tooltipHTML += `<strong>Holiday</strong>`;
+                                tooltipHTML += `<span>${event.remarks}</span>`;
+                            }
+                            tooltipHTML += `</div>`;
+                        });
+
+                        dayEl.appendChild(dotContainer);
+                        dayEl.dataset.tooltipHtml = tooltipHTML;
+                    }
+                    if (day === new Date().getDate() && cal_current_month === new Date().getMonth() && cal_current_year === new Date().getFullYear()) {
+                        dayEl.classList.add('current-day');
+                    }
+                    calendarGrid.appendChild(dayEl);
+                }
+            }
+
+            function bindCalendarEvents() {
+                const tooltip = document.getElementById('customTooltip');
+                const calendarGrid = document.getElementById('calendarGrid');
+                const calendarModal = document.getElementById('calendarModal');
+                let activeTooltipTarget = null;
+
+                function showTooltip(target) {
+                    if (!target.dataset.tooltipHtml) return;
+
+                    tooltip.innerHTML = target.dataset.tooltipHtml;
+                    tooltip.classList.remove('position-top', 'visible');
+
+                    tooltip.style.visibility = 'hidden';
+                    tooltip.style.display = 'block';
+                    const tooltipHeight = tooltip.offsetHeight;
+                    tooltip.style.display = '';
+                    tooltip.style.visibility = '';
+
+                    const rect = target.getBoundingClientRect();
+
+                    if ((rect.bottom + tooltipHeight + 20) > window.innerHeight) {
+                        tooltip.style.top = `${rect.top - tooltipHeight - 12}px`;
+                        tooltip.classList.add('position-top');
+                    } else {
+                        tooltip.style.top = `${rect.bottom + 12}px`;
+                    }
+
+                    tooltip.style.left = `${rect.left + rect.width / 2}px`;
+                    tooltip.style.transform = 'translateX(-50%)';
+                    tooltip.classList.add('visible');
+                    activeTooltipTarget = target;
+                }
+
+                function hideTooltip() {
+                    tooltip.classList.remove('visible');
+                    activeTooltipTarget = null;
+                }
+
+                calendarGrid.addEventListener('click', (e) => {
+                    const target = e.target.closest('.calendar-day[data-tooltip-html]');
+                    if (target) {
+                        if (activeTooltipTarget === target) {
+                            hideTooltip();
+                        } else {
+                            showTooltip(target);
+                        }
+                    }
+                });
+
+                calendarModal.addEventListener('click', (e) => {
+                    if (!e.target.closest('.calendar-grid')) {
+                        hideTooltip();
+                    }
+                });
+
+                document.getElementById('dateTimeTrigger').addEventListener('click', function () {
+                    showModal('calendarModal');
+                });
+                document.getElementById('prevMonthBtn').addEventListener('click', () => {
+                    cal_current_month--;
+                    if (cal_current_month < 0) {
+                        cal_current_month = 11;
+                        cal_current_year--;
+                    }
+                    renderCalendar();
+                });
+                document.getElementById('nextMonthBtn').addEventListener('click', () => {
+                    cal_current_month++;
+                    if (cal_current_month > 11) {
+                        cal_current_month = 0;
+                        cal_current_year++;
+                    }
+                    renderCalendar();
+                });
+            }
+
+            function bindModalEvents() {
+                document.querySelectorAll('.modal').forEach(function (modal) {
+                    const closeBtn = modal.querySelector('.modal-close');
+                    const overlay = modal.querySelector('.modal-overlay');
+                    if (closeBtn) {
+                        closeBtn.addEventListener('click', function () { hideModal(modal); });
+                    }
+                    if (overlay) {
+                        overlay.addEventListener('click', function () { hideModal(modal); });
+                    }
+                });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') {
+                        document.querySelectorAll('.modal:not(.hidden)').forEach(hideModal);
+                    }
+                });
+                const studentModalTabs = document.querySelector('#studentModal .modal-tabs');
+                if (studentModalTabs) {
+                    studentModalTabs.addEventListener('click', function (e) {
+                        if (e.target && e.target.matches('.tab-btn')) {
+                            renderStudentList(e.target.getAttribute('data-section'));
+                        }
+                    });
+                }
+            }
+
+            function bindFooterLinks() {
+                document.getElementById('totalStudentsLink').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    showModal('studentModal');
+                });
+                document.getElementById('madeByLink').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    showModal('aboutMeModal');
+                });
+                document.getElementById('viewFacultyLink').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    showModal('facultyModal');
+                });
+                document.getElementById('syllabusLink').addEventListener('click', function (e) {
+                    e.preventDefault();
+                    showModal('syllabusModal');
+                });
+            }
+
+            function getCurrentTimeSlot() {
+                const now = new Date();
+                const currentTime = now.getHours() * 60 + now.getMinutes();
+                const timeSlotsMap = [
+                    { slot: '9:30-10:30', start: 570, end: 630 }, { slot: '10:30-11:30', start: 630, end: 690 },
+                    { slot: '11:30-12:30', start: 690, end: 750 }, { slot: '12:30-1:30', start: 750, end: 810 },
+                    { slot: '1:30-2:30', start: 810, end: 870 }, { slot: '2:30-3:30', start: 870, end: 930 },
+                    { slot: '3:30-4:30', start: 930, end: 990 }
+                ];
+                for (var i = 0; i < timeSlotsMap.length; i++) {
+                    if (currentTime >= timeSlotsMap[i].start && currentTime < timeSlotsMap[i].end) {
+                        return timeSlotsMap[i].slot;
+                    }
+                }
+                return null;
+            }
+
+            function updateLiveHighlighting() {
+                document.querySelectorAll('.grid-cell.active-period').forEach(function (cell) {
+                    cell.classList.remove('active-period');
+                });
+                const currentDay = getCurrentDay();
+                const currentSlot = getCurrentTimeSlot();
+
+                if (currentDay && currentSlot && timetableData.days.indexOf(currentDay) > -1) {
+                    const activeCell = document.querySelector(`.grid-cell[data-day='${currentDay}'][data-time='${currentSlot}']`);
+                    if (activeCell && !activeCell.classList.contains('lunch') && !activeCell.classList.contains('free')) {
+                        activeCell.classList.add('active-period');
+                    }
+                }
+            }
+
+            // Initialize the application
+            initTheme();
+            updateDateTime();
+            generateTimetable();
+            bindModalEvents();
+            bindFooterLinks();
+            bindCalendarEvents();
+
+            document.getElementById('calendarToggle').addEventListener('click', function () {
+                showModal('calendarModal');
+            });
+
+            updateLiveHighlighting();
+
+            setInterval(updateDateTime, 1000);
+            setInterval(updateLiveHighlighting, 60000);
+        });
+    </script>
 </body>
 
 </html>
