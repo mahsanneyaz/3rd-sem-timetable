@@ -4,6 +4,12 @@
 
 ***
 
+## 🔗 Demo
+
+[Click here to view the live demo](https://mahsanneyaz.github.io/3rd-sem-timetable/)
+
+***
+
 ## ✨ Features
 
 - **Modern Design System**
@@ -51,14 +57,13 @@
 
 | Time | Monday | Tuesday | Wednesday | Thursday | Friday |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| 9:30–10:30 | Sports, Yoga \& Fitness | Electoral Literacy | Operating Systems Concept | Operating Systems Concept | Database Management Sys. |
-| 10:30–11:30 | Sports, Yoga \& Fitness | FREE | Database Management Sys. | Env. Studies | SPSS |
-| 11:30–12:30 | Data Comm. \& Networks | Operating Systems Concept | Env. Studies | Data Comm. \& Networks | SPSS |
-| 12:30–1:30 | German/French | Env. Studies | Sports, Yoga \& Fitness | Database Management Sys. | German/French |
+| 9:30–10:30 | Sports, Yoga & Fitness | Electoral Literacy | Operating Systems Concept | Operating Systems Concept | Database Management Sys. |
+| 10:30–11:30 | Sports, Yoga & Fitness | FREE | Database Management Sys. | Env. Studies | SPSS |
+| 11:30–12:30 | Data Comm. & Networks | Operating Systems Concept | Env. Studies | Data Comm. & Networks | SPSS |
+| 12:30–1:30 | German/French | Env. Studies | Sports, Yoga & Fitness | Database Management Sys. | German/French |
 | 1:30–2:30 | LUNCH | LUNCH | LUNCH | LUNCH | LUNCH |
-| 2:30–3:30 | Electoral Literacy | FREE | Data Comm. \& Networks | Electoral Literacy | DBMS LAB |
+| 2:30–3:30 | Electoral Literacy | FREE | Data Comm. & Networks | Electoral Literacy | DBMS LAB |
 | 3:30–4:30 | Env. Studies | Presentation Skills | Presentation Skills | FREE | DBMS LAB |
-
 
 ***
 
@@ -68,7 +73,7 @@
 
 - Aug 9, 2025: Raksha Bandhan
 - Aug 15, 2025: Independence Day
-- Aug 20 \& 21: Orientation, Induction 
+- Aug 20 & 21: Orientation, Induction
 - Sep 5: Milad-un-nabi
 - Sep 22: Maharaja Agrasen Jayanti
 - Sep 23: Haryana War Heroes Martyrdom Day
@@ -88,12 +93,12 @@
 
 ***
 
-## 📚 Subjects \& Faculty
+## 📚 Subjects & Faculty
 
 | Subject | Code | Faculty | Department |
 | :-- | :-- | :-- | :-- |
 | Database Management Systems | 24BCA301 | Dr. Kaleem | CSE |
-| Data Communication \& Networks | 24BCA302 | Dr. Syed Mohtashim Mian | CSE |
+| Data Communication & Networks | 24BCA302 | Dr. Syed Mohtashim Mian | CSE |
 | Operating Systems Concept | 24BCA303 | Mr. Rachit | CSE |
 | DBMS Laboratory | 24BCA304 | Dr. Kaleem | CSE |
 | Environmental Studies | 23ESUG201 | Uqab Ali Baba | Env. Science |
@@ -102,7 +107,6 @@
 | Sports, Yoga and Fitness | 23VACxxx | Ms. Komal | Sports |
 | Presentation Skills | 23SS353 | NF-A | PD |
 | Statistical Skills using SPSS | 23SS303 | Dr. Rashi Malik | MBA |
-
 
 ***
 
@@ -149,7 +153,7 @@
 
 ***
 
-## ♿ Accessibility \& Optimization
+## ♿ Accessibility & Optimization
 
 - Reduced-motion, accessible animation
 - Hybrid color palette, theme detection, and toggling
@@ -206,3 +210,4 @@ If this helped you, please share and star the repo!*
 ***
 
 <div style="text-align: center">⁂</div>
+
