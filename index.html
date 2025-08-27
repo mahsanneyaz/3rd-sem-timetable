@@ -1038,23 +1038,59 @@
             gap: var(--space-8);
         }
 
+        /* --- UPDATED FOOTER LINK STYLES --- */
         .footer-link {
             cursor: pointer;
             color: var(--color-text-secondary);
             text-decoration: none;
-            border-bottom: 1px dotted var(--color-text-secondary);
-            transition: color var(--duration-fast), border-bottom-color var(--duration-fast), transform var(--duration-fast);
+            border-bottom: none;
+            padding-bottom: 2px;
+            position: relative;
+            transition: color var(--duration-fast), transform var(--duration-fast);
+            display: inline-block;
         }
 
         .footer-link:hover {
             color: var(--color-text);
-            border-bottom-color: var(--color-text);
             transform: translateY(-2px);
         }
 
         .footer-link:active {
             transform: translateY(0);
         }
+
+        .footer-link::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-image: linear-gradient(to right, var(--color-text-secondary) 50%, transparent 50%);
+            background-size: 4px 1px;
+            background-repeat: repeat-x;
+            background-position: 0 100%;
+        }
+
+        .footer-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-image: linear-gradient(to right, var(--color-primary) 50%, transparent 50%);
+            background-size: 4px 1px;
+            background-repeat: repeat-x;
+            background-position: 0 100%;
+            clip-path: inset(0 100% 0 0);
+            transition: clip-path 0.4s ease;
+        }
+
+        .footer-link:hover::after {
+            clip-path: inset(0 0 0 0);
+        }
+        /* --- END OF UPDATED STYLES --- */
 
         /* Calendar Styles */
         #dateTimeTrigger {
@@ -1808,6 +1844,8 @@
                         <a href="#" id="syllabusLink" class="footer-link">Syllabus</a>
                         <span class="separator">•</span>
                         <a href="#" id="importantDatesLink" class="footer-link">Important Dates</a>
+                        <span class="separator">•</span>
+                        <a href="https://erpsrm.com/srmhonline/studentportal/loginManager/youLogin.jsp" target="_blank" class="footer-link">ERP</a>
                     </div>
                     <div class="interactive-legend">
                         <div class="legend-item" data-type="subject">
