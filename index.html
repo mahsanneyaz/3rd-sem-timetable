@@ -2212,7 +2212,11 @@
             `
         };
 
+        // ===================================================================================
+        // ACADEMIC EVENTS - THIS IS WHERE TO ADD EXAMS, ASSIGNMENTS, AND HOLIDAYS
+        // ===================================================================================
         const academicEvents = {
+            // --- HOLIDAYS ---
             "2025-08-09": [{ type: "holiday", remarks: "Raksha bandhan" }],
             "2025-08-15": [{ type: "holiday", remarks: "Independence Day" }],
             "2025-08-20": [{ type: "holiday", remarks: "Orientation" }],
@@ -2228,7 +2232,122 @@
             "2025-12-03": [{ type: "holiday", remarks: "Preparatory Leave" }],
             "2025-12-25": [{ type: "holiday", remarks: "Christmas" }],
             "2026-01-01": [{ type: "holiday", remarks: "Semester Break" }],
+
+            // --- EXAMS ---
+            
+            "2025-10-13": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
+                {
+                    type: "exam", // Use "exam" for exams
+                    name: "Internal Assessment 1",
+                    // subject: "Database Management Systems",
+                    // time: "10:30 AM - 11:30 AM",
+                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
+                }
+            ],
+            
+            "2025-10-14": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
+                {
+                    type: "exam", // Use "exam" for exams
+                    name: "Internal Assessment 1",
+                    // subject: "Database Management Systems",
+                    // time: "10:30 AM - 11:30 AM",
+                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
+                }
+            ],
+
+            "2025-10-15": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
+                {
+                    type: "exam", // Use "exam" for exams
+                    name: "Internal Assessment 1",
+                    // subject: "Database Management Systems",
+                    // time: "10:30 AM - 11:30 AM",
+                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
+                }
+            ],
+
+            "2025-10-16": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
+                {
+                    type: "exam", // Use "exam" for exams
+                    name: "Internal Assessment 1",
+                    // subject: "Database Management Systems",
+                    // time: "10:30 AM - 11:30 AM",
+                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
+                }
+            ],
+
+            "2025-11-10": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
+                {
+                    type: "exam", // Use "exam" for exams
+                    name: "Internal Assessment 1",
+                    // subject: "Database Management Systems",
+                    // time: "10:30 AM - 11:30 AM",
+                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
+                }
+            ],
+
+            "2025-11-11": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
+                {
+                    type: "exam", // Use "exam" for exams
+                    name: "Internal Assessment 1",
+                    // subject: "Database Management Systems",
+                    // time: "10:30 AM - 11:30 AM",
+                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
+                }
+            ],
+
+            "2025-11-12": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
+                {
+                    type: "exam", // Use "exam" for exams
+                    name: "Internal Assessment 1",
+                    // subject: "Database Management Systems",
+                    // time: "10:30 AM - 11:30 AM",
+                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
+                }
+            ],
+
+            "2025-11-13": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
+                {
+                    type: "exam", // Use "exam" for exams
+                    name: "Internal Assessment 1",
+                    // subject: "Database Management Systems",
+                    // time: "10:30 AM - 11:30 AM",
+                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
+                }
+            ],
+
+            // --- ASSIGNMENTS ---
+            /*
+            "YYYY-MM-DD": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-26"
+                {
+                    type: "assignment", // Use "assignment" for assignments
+                    subject: "Environmental Studies",
+                    remarks: "Prepare a report on local water pollution."
+                }
+            ],
+            
+
+            // --- MULTIPLE EVENTS ON THE SAME DAY ---
+            
+            "2025-08-31": [ // Replace YYYY-MM-DD with the actual date
+                {
+                    type: "assignment",
+                    subject: "Data Communication & Networks",
+                    remarks: "Submit answers for Chapter 3 questions."
+                },
+                {
+                    type: "exam",
+                    name: "Class Test 1",
+                    subject: "Operating Systems",
+                    time: "2:30 PM - 3:30 PM",
+                    remarks: "Process Management, CPU Scheduling"
+                }
+            ]
+            */
         };
+        // ===================================================================================
+        // END OF ACADEMIC EVENTS SECTION
+        // ===================================================================================
+
 
         let cal_current_date = new Date();
         let cal_current_month = cal_current_date.getMonth();
@@ -2643,10 +2762,19 @@
                     allEvents.forEach(event => {
                         const dateOptions = { month: 'short', day: 'numeric', year: 'numeric' };
                         const formattedDate = event.date.toLocaleDateString('en-US', dateOptions);
+                        let detailsHTML = '';
+                        if (event.type === 'exam') {
+                            detailsHTML = `<strong>${event.name || 'Exam'}:</strong> ${event.subject} - ${event.remarks || ''}`;
+                        } else if (event.type === 'assignment') {
+                            detailsHTML = `<strong>Assignment:</strong> ${event.subject} - ${event.remarks || ''}`;
+                        } else {
+                            detailsHTML = event.remarks || 'No details';
+                        }
+                        
                         html += `
                         <div class="date-item type-${event.type}">
                             <div class="date-item-date">${formattedDate}</div>
-                            <div class="date-item-details">${event.remarks || 'No details'}</div>
+                            <div class="date-item-details">${detailsHTML}</div>
                         </div>
                     `;
                     });
