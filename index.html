@@ -3,9 +3,17 @@
 
 <head>
     <meta charset="UTF-8">
+    <!--Ensures the page is displayed correctly on different devices-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Timetable - SRM University</title>
+    <!--Adds the Tailwind CSS library for styling-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--Link to Google Fonts for a clean, modern typeface-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* CSS Variables for consistent theming and styling */
         :root {
             /* Color Tokens */
             --color-white: #fff;
@@ -87,7 +95,7 @@
             --dark-color-primary-rgb: 50, 184, 198;
 
             /* Typography */
-            --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             --font-size-xs: 13px;
             --font-size-sm: 12px;
             --font-size-base: 14px;
@@ -197,7 +205,7 @@
             overflow-x: hidden;
         }
 
-        /* IMPROVED: Animated Dot Background */
+        /* Animated Dot Background */
         body::before {
             content: '';
             position: fixed;
@@ -235,6 +243,7 @@
             z-index: 1000;
             background-color: rgba(var(--color-surface-rgb), 0.8);
             backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--color-border);
             padding: var(--space-12) 0;
             animation: fadeInSlideDown 0.6s var(--ease-in-out) both;
@@ -405,6 +414,17 @@
             margin-top: var(--space-16);
         }
 
+        /* Brighter links in timetable header for visibility */
+        .teacher-info .footer-link,
+        .teacher-info .separator {
+            color: var(--color-text);
+            transition: color var(--duration-fast);
+        }
+
+        .teacher-info .footer-link:hover {
+            color: var(--color-primary);
+        }
+
         .separator {
             color: var(--color-text-secondary);
         }
@@ -420,7 +440,7 @@
         .timetable-grid {
             width: 100%;
             display: grid;
-            grid-template-columns: 120px repeat(5, 1fr);
+            grid-template-columns: minmax(80px, auto) repeat(5, 1fr);
             gap: var(--space-2);
             background-color: var(--color-surface);
             border-radius: var(--radius-lg);
@@ -558,7 +578,7 @@
             }
         }
 
-        /* --- REDESIGNED: Interactive Legend Styles --- */
+        /* Interactive Legend Styles */
         .interactive-legend {
             display: flex;
             justify-content: center;
@@ -595,7 +615,7 @@
             border-radius: var(--radius-full);
             border: none;
         }
-        
+
         .color-box.subject {
             background-color: rgba(var(--color-primary-rgb), 0.6);
         }
@@ -612,11 +632,11 @@
             background-color: rgba(190, 24, 93, 0.6);
         }
 
-        .color-box.today {
+        .color-box.active-period {
             background-color: rgba(8, 145, 178, 0.6);
             animation: pulse-border-bg 2s infinite;
         }
-        
+
         /* Grid Cell Highlighting for Interactive Legend */
         .grid-cell.highlight-legend {
             outline: 2px solid var(--color-primary);
@@ -626,7 +646,7 @@
             position: relative;
         }
 
-        /* --- MODAL STYLES (WITH EXIT ANIMATIONS) --- */
+        /* MODAL STYLES (WITH EXIT ANIMATIONS) */
         .modal {
             position: fixed;
             top: 0;
@@ -753,7 +773,7 @@
             transform: rotate(90deg);
         }
 
-        /* NEW: Smooth scroll and custom scrollbar for modals */
+        /* Smooth scroll and custom scrollbar for modals */
         .modal-body {
             padding: var(--space-20);
             overflow-y: auto;
@@ -867,8 +887,7 @@
             border-bottom: none;
         }
 
-        /* --- MODIFIED: IMPORTANT DATES MODAL --- */
-        /* NEW: Open/close animations */
+        /* IMPORTANT DATES MODAL */
         @keyframes slideInUp {
             from {
                 transform: translateY(40px);
@@ -945,11 +964,11 @@
             background-color: var(--color-secondary);
             border-radius: var(--radius-md);
             border-left: 4px solid transparent;
-            /* NEW: Animation for filtering */
+            /* Animation for filtering */
             animation: dateItemFadeIn 0.4s var(--ease-in-out) backwards;
         }
 
-        /* NEW: Animation keyframes for filtering */
+        /* Animation keyframes for filtering */
         @keyframes dateItemFadeIn {
             from {
                 opacity: 0;
@@ -1038,7 +1057,7 @@
             gap: var(--space-8);
         }
 
-        /* --- UPDATED FOOTER LINK STYLES --- */
+        /* UPDATED FOOTER LINK STYLES */
         .footer-link {
             cursor: pointer;
             color: var(--color-text-secondary);
@@ -1090,7 +1109,6 @@
         .footer-link:hover::after {
             clip-path: inset(0 0 0 0);
         }
-        /* --- END OF UPDATED STYLES --- */
 
         /* Calendar Styles */
         #dateTimeTrigger {
@@ -1313,7 +1331,7 @@
             border-top-color: rgba(255, 255, 255, 0.1);
         }
 
-        /* --- SYLLABUS MODAL STYLES --- */
+        /* SYLLABUS MODAL STYLES */
         #syllabusModal .modal-content {
             width: 100%;
             max-width: 100vw;
@@ -1323,14 +1341,14 @@
             border: none;
             box-shadow: none;
             padding: 0;
-            animation: slideInUp var(--duration-slow) var(--ease-in-out);
+            animation: slideInUpSyllabus var(--duration-slow) var(--ease-in-out);
         }
 
         #syllabusModal.is-closing .modal-content {
-            animation: slideOutDown var(--duration-slow) var(--ease-in-out);
+            animation: slideOutDownSyllabus var(--duration-slow) var(--ease-in-out);
         }
 
-        @keyframes slideInUp {
+        @keyframes slideInUpSyllabus {
             from {
                 opacity: 0;
                 transform: translateY(100%);
@@ -1342,7 +1360,7 @@
             }
         }
 
-        @keyframes slideOutDown {
+        @keyframes slideOutDownSyllabus {
             from {
                 opacity: 1;
                 transform: translateY(0);
@@ -1445,7 +1463,7 @@
             transform: translateX(0);
         }
 
-        /* --- NEW: Custom Mobile Syllabus Dropdown --- */
+        /* Custom Mobile Syllabus Dropdown */
         .syllabus-select-wrapper {
             padding: var(--space-16);
             border-bottom: 1px solid var(--color-border);
@@ -1510,6 +1528,16 @@
             opacity: 1;
             visibility: visible;
             transform: scaleY(1) translateY(0);
+        }
+
+        /* Blur effect for syllabus dropdown background */
+        .syllabus-details-content {
+            transition: filter var(--duration-normal) ease-in-out;
+        }
+
+        .syllabus-select-wrapper.open~.syllabus-details-content {
+            filter: blur(3px);
+            pointer-events: none;
         }
 
         .syllabus-select-option {
@@ -1656,13 +1684,13 @@
                 row-gap: var(--space-12);
             }
 
-            .header-controls {
-                display: contents;
-            }
-
             .university-info {
                 order: 1;
                 flex-grow: 1;
+            }
+
+            .header-controls {
+                display: contents;
             }
 
             .current-time {
@@ -1692,7 +1720,7 @@
             }
 
             .timetable-grid {
-                grid-template-columns: 80px repeat(5, minmax(80px, 1fr));
+                grid-template-columns: minmax(60px, auto) repeat(5, minmax(80px, 1fr));
                 font-size: var(--font-size-xs);
             }
 
@@ -1735,7 +1763,7 @@
 
         @media (max-width: 480px) {
             .timetable-grid {
-                grid-template-columns: 60px repeat(5, minmax(60px, 1fr));
+                grid-template-columns: minmax(50px, auto) repeat(5, minmax(60px, 1fr));
                 padding: var(--space-8);
                 gap: var(--space-1);
             }
@@ -1757,16 +1785,18 @@
                 align-items: flex-start;
                 gap: var(--space-8);
             }
-            
-            /* NEW: Mobile legend size reduction */
+
+            /* Mobile legend size reduction */
             .interactive-legend {
                 gap: var(--space-8);
             }
+
             .interactive-legend .legend-item {
                 font-size: 11px;
                 gap: var(--space-6);
                 padding: var(--space-4) var(--space-8);
             }
+
             .interactive-legend .color-box {
                 width: 8px;
                 height: 8px;
@@ -1845,7 +1875,8 @@
                         <span class="separator">•</span>
                         <a href="#" id="importantDatesLink" class="footer-link">Important Dates</a>
                         <span class="separator">•</span>
-                        <a href="https://erpsrm.com/srmhonline/studentportal/loginManager/youLogin.jsp" target="_blank" class="footer-link">ERP</a>
+                        <a href="https://erpsrm.com/srmhonline/studentportal/loginManager/youLogin.jsp" target="_blank"
+                            class="footer-link">ERP</a>
                     </div>
                     <div class="interactive-legend">
                         <div class="legend-item" data-type="subject">
@@ -1865,7 +1896,7 @@
                             <span>Free</span>
                         </div>
                         <div class="legend-item" data-type="active-period">
-                            <div class="color-box today"></div>
+                            <div class="color-box active-period"></div>
                             <span>Current</span>
                         </div>
                     </div>
@@ -2119,7 +2150,7 @@
                 "Operating Systems Concept": { "code": "24BCA303", "name": "Operating Systems Concept (OS)", "faculty": "Mr. Rachit", "department": "CSE" },
                 "DBMS LAB": { "code": "24BCA304", "name": "Database Management Systems Lab (DBMS LAB)", "faculty": "Dr. Kaleem", "department": "CSE" },
                 "Env. Studies": { "code": "23ESUG201", "name": "Environmental Studies (Env. Studies)", "faculty": "Uqab Ali Baba", "department": "ENV. SCIENCE" },
-                "Electoral Literacy in India": { "code": "24MDCxx", "name": "Electoral Literacy in India (ELI)", "faculty": "Abhishank", "department": "POL.SC." },
+                "Electoral Literacy in India": { "code": "24MDCxx", "name": "Electoral Literacy in India (ELI)", "faculty": "Dr. Abhishank Mishra", "department": "POL.SC." },
                 "German-I/French-I": { "code": "23AECxxx", "name": "German-I/French-I", "faculty": "Mr.Sudip Das/Mr.Ashish Verma", "department": "LANGUAGE" },
                 "Sports,Yoga and Fitness": { "code": "23VACxxx", "name": "Sports,Yoga and Fitness (SYF)", "faculty": "Ms.Komal", "department": "SPORTS" },
                 "Presentation Skills": { "code": "23SS353", "name": "Presentation Skills (PS)", "faculty": "NF-A", "department": "PD" },
@@ -2209,12 +2240,80 @@
 
                 <h4>Unit-5: MEMORY MANAGEMENT</h4>
                 <p>Basic Memory Management Techniques, Swapping and Contiguous Memory Allocation: First Fit, Best Fit, worst Fit, Paging and Segmentation Segmentation with Paging, Virtual Memory: Demand Paging, Page Replacement Algorithms (FIFO, LRU, Optimal). Process Creation and address Binding.</p>
+            `,
+
+            "Env. Studies": `
+                <h4>Unit 1: Introduction to enviromental studies</h4>
+                    <p><ul>
+                        <li>Mutidisciplinary nature of enviromental studies</li>
+                        <li>Scope and imprtance;Concept of sustainability and sustainable development.</li>
+                    </ul></p>
+                
+                    <h4>Unit 2:</h4>
+                <p>what is an ecosystem? Structure and function of ecosystem; Energy flow in an ecosystem:food chains,food webs and ecological succession. Case studies of the following ecosystems : a) Forest ecosystem b) Grassland ecosystem c) Desert ecosystem d) Aquatic ecosystems (ponds,streams,lakes,rivers, oceans, estuarie)</p>
+                
+                <h4>Unit 3: Natural Resources : Renewable and Non-renewable Resources</h4>
+                <p>Land resources and landuse change; Land degradation, soil erosion and desertification.
+                <ul>
+                    <li>Deforestation: Causes and impacts due to mining, dam building on environment, forests, biodiversity, and tribal populations.</li>
+                    <li>Water: Use and over-exploitation of surface and ground water, floods, droughts, conflicts over water (international & inter-state).</li>
+                    <li>Energy resources: Renewable and non-renewable energy sources, use of alternate energy sources, growing energy needs, case studies.</li>
+                </ul>
+                </p>
+                
+                <h4>Unit 4: Biodiversity and Conservation</h4>
+                <p>
+                    <ul>
+                        <li>Levels of biological diversity: genetic, species and ecosystem diversity; Biogeographic zones of India; Biodiversity patterns and global biodiversity hot spots</li>
+                        <li>India as a mega-biodiversity nation; Endangered and endemic species of India</li>
+                        <li>Threats to biodiversity: Habitat loss, poaching of wildlife, man-wildlife conflicts, biological invasions; Conservation of biodiversity: In-situ and Ex-situ conservation of biodiversity.</li>
+                        <li>Ecosystem and biodiversity services: Ecological, economic, social, ethical, aesthetic and Informational value.</li>
+                    </ul>    
+                </p>
+                
+                <h4>Unit 5: Environmental Pollution</h4>    
+                <p>
+                    <ul>
+                        <li>Environmental pollution: types, causes, effects, and controls; Air, water, soil and noise pollution</li>
+                        <li>Nuclear hazards and human health risks</li>
+                        <li>Solid waste management: Control measures of urban and industrial waste.</li>
+                        <li>Pollution case studies.</li>
+                    </ul>
+                </p>    
+
+                <h4>Unit 6 : Environmental Policies & Practices</h4>    
+                <p>
+                    <ul>
+                        <li>Climate change, global warming, ozone layer depletion, acid rain and impacts on human communities and agriculture</li>
+                        <li>Environment Laws: Environment Protection Act; Air (Prevention & Control of Pollution) Act; Water (Prevention and control of Pollution) Act; Wildlife Protection Act; Forest Conservation Act. International agreements: Montreal and Kyoto protocols and Convention on Biological Diversity (CBD).</li>
+                        <li>Nature reserves, tribal populations and rights, and human wildlife conflicts in Indian context</li>
+                    </ul>
+                </p>  
+
+                <h4>Unit 7: Human Communities and the Environment</h4>    
+                <p>
+                    <ul>
+                        <li>Human population growth: Impacts on environment, human health, and welfare.</li>
+                        <li>Resettlement and rehabilitation of project affected persons, case studies.</li>
+                        <li>Disaster management: floods, earthquake, cyclones, and landslides.</li>
+                        <li>Environmental movements: Chipko, Silent valley, Bishnoi’s of Rajasthan.</li>
+                        <li>Environmental ethics: Role of Indian and other religions and cultures in environmental conservation. • Environmental communication and public awareness, case studies (e.g., CNG vehicles in Delhi).</li>
+                    </ul>
+                </p>  
+                <h4>Unit 8: Field work</h4>    
+                <p>
+                    <ul>
+                        <li>Visit to an area to document environmental assets: river/ forest/ flora/fauna, etc.</li>
+                        <li>Visit to a local polluted site-Urban/Rural/Industrial/Agricultural.</li>
+                        <li>Study of common plants, insects, birds and basic principles of identification.</li>
+                        <li>Study of simple ecosystems-pond, river, Delhi Ridge, etc.</li>
+                    </ul>
+                </p>  
+
+
             `
         };
 
-        // ===================================================================================
-        // ACADEMIC EVENTS - THIS IS WHERE TO ADD EXAMS, ASSIGNMENTS, AND HOLIDAYS
-        // ===================================================================================
         const academicEvents = {
             // --- HOLIDAYS ---
             "2025-08-09": [{ type: "holiday", remarks: "Raksha bandhan" }],
@@ -2234,120 +2333,15 @@
             "2026-01-01": [{ type: "holiday", remarks: "Semester Break" }],
 
             // --- EXAMS ---
-            
-            "2025-10-13": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
-                {
-                    type: "exam", // Use "exam" for exams
-                    name: "Internal Assessment 1",
-                    // subject: "Database Management Systems",
-                    // time: "10:30 AM - 11:30 AM",
-                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
-                }
-            ],
-            
-            "2025-10-14": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
-                {
-                    type: "exam", // Use "exam" for exams
-                    name: "Internal Assessment 1",
-                    // subject: "Database Management Systems",
-                    // time: "10:30 AM - 11:30 AM",
-                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
-                }
-            ],
-
-            "2025-10-15": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
-                {
-                    type: "exam", // Use "exam" for exams
-                    name: "Internal Assessment 1",
-                    // subject: "Database Management Systems",
-                    // time: "10:30 AM - 11:30 AM",
-                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
-                }
-            ],
-
-            "2025-10-16": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
-                {
-                    type: "exam", // Use "exam" for exams
-                    name: "Internal Assessment 1",
-                    // subject: "Database Management Systems",
-                    // time: "10:30 AM - 11:30 AM",
-                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
-                }
-            ],
-
-            "2025-11-10": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
-                {
-                    type: "exam", // Use "exam" for exams
-                    name: "Internal Assessment 1",
-                    // subject: "Database Management Systems",
-                    // time: "10:30 AM - 11:30 AM",
-                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
-                }
-            ],
-
-            "2025-11-11": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
-                {
-                    type: "exam", // Use "exam" for exams
-                    name: "Internal Assessment 1",
-                    // subject: "Database Management Systems",
-                    // time: "10:30 AM - 11:30 AM",
-                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
-                }
-            ],
-
-            "2025-11-12": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
-                {
-                    type: "exam", // Use "exam" for exams
-                    name: "Internal Assessment 1",
-                    // subject: "Database Management Systems",
-                    // time: "10:30 AM - 11:30 AM",
-                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
-                }
-            ],
-
-            "2025-11-13": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-15"
-                {
-                    type: "exam", // Use "exam" for exams
-                    name: "Internal Assessment 1",
-                    // subject: "Database Management Systems",
-                    // time: "10:30 AM - 11:30 AM",
-                    // remarks: "Unit 1 & 2: SQL Joins, Normalization"
-                }
-            ],
-
-            // --- ASSIGNMENTS ---
-            /*
-            "YYYY-MM-DD": [ // Replace YYYY-MM-DD with the actual date, e.g., "2025-09-26"
-                {
-                    type: "assignment", // Use "assignment" for assignments
-                    subject: "Environmental Studies",
-                    remarks: "Prepare a report on local water pollution."
-                }
-            ],
-            
-
-            // --- MULTIPLE EVENTS ON THE SAME DAY ---
-            
-            "2025-08-31": [ // Replace YYYY-MM-DD with the actual date
-                {
-                    type: "assignment",
-                    subject: "Data Communication & Networks",
-                    remarks: "Submit answers for Chapter 3 questions."
-                },
-                {
-                    type: "exam",
-                    name: "Class Test 1",
-                    subject: "Operating Systems",
-                    time: "2:30 PM - 3:30 PM",
-                    remarks: "Process Management, CPU Scheduling"
-                }
-            ]
-            */
+            "2025-10-13": [{ type: "exam", name: "Internal Assessment 1"}],
+            "2025-10-14": [{ type: "exam", name: "Internal Assessment 1"}],
+            "2025-10-15": [{ type: "exam", name: "Internal Assessment 1"}],
+            "2025-10-16": [{ type: "exam", name: "Internal Assessment 1"}],
+            "2025-11-10": [{ type: "exam", name: "Internal Assessment 2"}],
+            "2025-11-11": [{ type: "exam", name: "Internal Assessment 2"}],
+            "2025-11-12": [{ type: "exam", name: "Internal Assessment 2"}],
+            "2025-11-13": [{ type: "exam", name: "Internal Assessment 2"}],
         };
-        // ===================================================================================
-        // END OF ACADEMIC EVENTS SECTION
-        // ===================================================================================
-
 
         let cal_current_date = new Date();
         let cal_current_month = cal_current_date.getMonth();
@@ -2473,6 +2467,7 @@
                 if (modalId === 'subjectModal') {
                     const subjectInfo = timetableData.subjects[data.subject];
                     if (!subjectInfo) return;
+                    document.getElementById('modalTitle').textContent = subjectInfo.name;
                     document.getElementById('subjectName').textContent = subjectInfo.name;
                     document.getElementById('subjectCode').textContent = subjectInfo.code;
                     document.getElementById('subjectFaculty').textContent = subjectInfo.faculty;
@@ -2605,7 +2600,7 @@
                         if (wrapper.classList.contains('open') && !wrapper.contains(e.target)) {
                             toggleDropdown();
                         }
-                    }, { capture: true }); 
+                    }, { capture: true });
 
                 } else {
                     const navContainer = modalContent.querySelector('.syllabus-nav');
@@ -2710,12 +2705,12 @@
                             tooltipHTML += `<div class="tooltip-event-item item-${event.type}">`;
                             if (event.type === 'exam') {
                                 tooltipHTML += `<strong>${event.name}</strong>`;
-                                tooltipHTML += `<span>${event.subject} (${event.time})</span>`;
-                                tooltipHTML += `<small>Topics: ${event.topics}</small>`;
+                                if(event.subject) tooltipHTML += `<span>${event.subject} (${event.time})</span>`;
+                                if(event.remarks) tooltipHTML += `<small>Topics: ${event.remarks}</small>`;
                             } else if (event.type === 'assignment') {
                                 tooltipHTML += `<strong>Assignment Due</strong>`;
                                 tooltipHTML += `<span>${event.subject}</span>`;
-                                tooltipHTML += `<small>Task: ${event.task}</small>`;
+                                tooltipHTML += `<small>Task: ${event.remarks}</small>`;
                             } else if (event.type === 'holiday') {
                                 tooltipHTML += `<strong>Holiday</strong>`;
                                 tooltipHTML += `<span>${event.remarks}</span>`;
@@ -2764,13 +2759,13 @@
                         const formattedDate = event.date.toLocaleDateString('en-US', dateOptions);
                         let detailsHTML = '';
                         if (event.type === 'exam') {
-                            detailsHTML = `<strong>${event.name || 'Exam'}:</strong> ${event.subject} - ${event.remarks || ''}`;
+                            detailsHTML = `<strong>${event.name || 'Exam'}</strong>: ${event.subject ? event.subject + ' - ' : ''} ${event.remarks || ''}`;
                         } else if (event.type === 'assignment') {
                             detailsHTML = `<strong>Assignment:</strong> ${event.subject} - ${event.remarks || ''}`;
                         } else {
                             detailsHTML = event.remarks || 'No details';
                         }
-                        
+
                         html += `
                         <div class="date-item type-${event.type}">
                             <div class="date-item-date">${formattedDate}</div>
@@ -2785,7 +2780,7 @@
                     newItems.forEach((item, index) => {
                         item.style.animationDelay = `${index * 50}ms`;
                     });
-                }, 200); 
+                }, 200);
             }
 
             function bindCalendarEvents() {
@@ -2960,7 +2955,6 @@
                 });
             }
             
-            // --- NEW: Function to bind events for the interactive legend ---
             function bindInteractiveLegendEvents() {
                 const legendItems = document.querySelectorAll('.interactive-legend .legend-item');
                 if (!legendItems.length) return;
@@ -2995,7 +2989,7 @@
                 highlightCurrentPeriod();
                 renderCalendar();
                 bindCalendarEvents();
-                bindInteractiveLegendEvents(); // Add the new function call
+                bindInteractiveLegendEvents();
             }
 
             init();
