@@ -6,7 +6,7 @@
 
 ## 🔗 Demo
 
-[Click here to view the live demo](https://mahsanneyaz.github.io/3rd-sem-timetable/)
+[Click here to view the live demo](https://3sembca.gt.tc/)
 
 ***
 
