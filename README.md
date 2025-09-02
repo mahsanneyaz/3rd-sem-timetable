@@ -6,7 +6,7 @@
 
 ## 🔗 Demo
 
-[Click here to view the live demo](https://3sembca.gt.tc/)
+[Click here to visit](https://3sembca.gt.tc/)
 
 ***
 
