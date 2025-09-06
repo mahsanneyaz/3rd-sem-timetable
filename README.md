@@ -141,18 +141,6 @@
 
 ***
 
-## 📁 Structure
-
-```plaintext
-3rd-sem-timetable/
-├── index.html      # Main HTML structure
-├── style.css       # Design system, dark/light themes, grid, responsiveness
-├── app.js          # App logic, data (timetable, directories, syllabus, events)
-└── README.md       # Documentation (this file)
-```
-
-***
-
 ## ♿ Accessibility & Optimization
 
 - Reduced-motion, accessible animation
