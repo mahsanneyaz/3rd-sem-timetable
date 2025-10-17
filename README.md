@@ -105,7 +105,7 @@
 | Electoral Literacy in India | 24MDCxx | Abhishank | Political Science |
 | German-I/French-I | 23AECxxx | Mr. Sudip Das / Mr. Ashish Verma | Language |
 | Sports, Yoga and Fitness | 23VACxxx | Ms. Komal | Sports |
-| Presentation Skills | 23SS353 | NF-A | PD |
+| Presentation Skills | 23SS353 | Sahil Dahiya | PD |
 | Statistical Skills using SPSS | 23SS303 | Dr. Rashi Malik | MBA |
 
 ***
