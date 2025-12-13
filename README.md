@@ -150,16 +150,6 @@
 
 ***
 
-## 🗺️ Roadmap
-
-- Enhanced exam and assignment management in calendar
-- Student attendance calculator
-- Notes and reminders for individual slots/days
-- ICS calendar export and Google integration
-- Data entry validation for timetable and events
-
-***
-
 ## 👤 About Me
 
 - Mohammad Ahsan Neyaz
@@ -186,13 +176,7 @@
 
 ***
 
-## 🔑 License
-
-Open source.
-
-***
-
-*Made with ❤️ for all BCA 3B students at SRM University Delhi-NCR.
+*Made for all BCA 3B students at SRM University Delhi-NCR.
 If this helped you, please share and star the repo!*
 
 ***
